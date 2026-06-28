@@ -1,0 +1,178 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background: $bg;
+    padding-top: $header-height;
+}
+
+.inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    @include bp.above(tablet) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.eyebrow {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $primary;
+    margin-bottom: 1.25rem;
+}
+
+.headline {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: $text;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.sub {
+    font-family: $font-body;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: $text-muted;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    max-width: 560px;
+}
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $border;
+
+    @include bp.above(tablet) {
+        gap: 3rem;
+    }
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.statNum {
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary;
+
+    @include bp.above(tablet) {
+        font-size: 2.5rem;
+    }
+}
+
+.statLabel {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $primary;
+    color: $primary-fg;
+    padding: 0.9rem 1.85rem;
+    border-radius: $radius;
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 48px;
+    transition:
+        background 0.2s,
+        transform 0.18s,
+        box-shadow 0.2s;
+
+    &:hover {
+        background: $primary-hover;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba($primary, 0.25);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: $text;
+    padding: 0.9rem 1.85rem;
+    border-radius: $radius;
+    border: 1.5px solid $border;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 48px;
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        transform 0.18s;
+
+    &:hover {
+        border-color: $primary;
+        color: $primary;
+        transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover {
+            transform: none;
+        }
+    }
+}

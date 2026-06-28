@@ -1,0 +1,56 @@
+@use '../styles/variables' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: $radius;
+    font-weight: 600;
+    font-size: 1rem;
+    transition:
+        background 0.2s,
+        transform 0.15s,
+        box-shadow 0.2s;
+    min-height: 44px;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover {
+            transform: none;
+        }
+    }
+
+    &.primary {
+        background: $primary;
+        color: $primary-fg;
+
+        &:hover {
+            background: $primary-hover;
+            box-shadow: 0 4px 16px rgba($primary, 0.3);
+        }
+    }
+
+    &.secondary {
+        background: transparent;
+        color: $primary;
+        border: 2px solid $primary;
+
+        &:hover {
+            background: $primary-light;
+        }
+    }
+
+    &.white {
+        background: $bg;
+        color: $primary;
+
+        &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+    }
+}

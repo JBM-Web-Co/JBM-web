@@ -1,0 +1,50 @@
+@use '../styles/variables' as *;
+@use '../styles/breakpoints' as bp;
+
+.sectionHeader {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $primary;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: $font-heading;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $text;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    @include bp.above(tablet) {
+        font-size: 2.75rem;
+    }
+}
+
+.sectionSubtitle {
+    font-size: 1.05rem;
+    color: $text-muted;
+    line-height: 1.7;
+}
+
+.sectionLabelDark {
+    color: $accent;
+}
+
+.sectionTitleDark {
+    color: #f0ede8;
+}
+
+.sectionSubtitleDark {
+    color: rgba(240, 237, 232, 0.6);
+}

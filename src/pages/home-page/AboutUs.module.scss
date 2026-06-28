@@ -1,0 +1,53 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.aboutUs {
+    background: $surface;
+}
+
+.inner {
+    @include container;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    @include bp.above(tablet) {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+.content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @include bp.above(tablet) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 2rem;
+    }
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $text;
+    line-height: 1.5;
+}
+
+.pointIcon {
+    color: $primary;
+    flex-shrink: 0;
+    margin-top: 2px;
+}

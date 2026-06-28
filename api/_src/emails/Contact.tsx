@@ -16,7 +16,7 @@ const FONT_FAMILY =
     'ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif';
 
 export const ContactEmail = (data: ContactSchema) => {
-    const { name, email, phone, message } = data;
+    const { name, email, phone, preferredContact, message } = data;
 
     return (
         <Html lang="en">
@@ -40,6 +40,9 @@ export const ContactEmail = (data: ContactSchema) => {
                     </Text>
                     <Text style={FIELD_STYLE}>
                         <strong>Phone:</strong> {phone}
+                    </Text>
+                    <Text style={FIELD_STYLE}>
+                        <strong>Preferred Contact:</strong> {preferredContact}
                     </Text>
                     <Section>
                         <Text style={FIELD_STYLE}>

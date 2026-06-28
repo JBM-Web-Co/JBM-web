@@ -1,0 +1,136 @@
+﻿@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.thanksOnboarding {
+    padding: 5rem 0 4rem;
+    display: flex;
+    justify-content: center;
+
+    @include bp.above(tablet) {
+        padding: 7rem 0 5rem;
+    }
+
+    .card {
+        @include container;
+        max-width: 620px;
+        background: $surface;
+        border: 1px solid $border;
+        border-radius: $radius;
+        padding: 2.5rem 2rem;
+        box-shadow: $shadow;
+        text-align: center;
+
+        @include bp.above(tablet) {
+            padding: 3rem 2.5rem;
+        }
+    }
+
+    .logo {
+        height: 90px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .iconWrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.1);
+        color: $success;
+        margin-bottom: 1.25rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 1.25rem;
+        letter-spacing: -0.03em;
+
+        @include bp.above(tablet) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .body {
+        font-size: 1.05rem;
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .btnPrimary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: $primary;
+        color: white;
+        padding: 0.75rem 1.75rem;
+        border-radius: $radius-pill;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition:
+            background 0.2s,
+            transform 0.2s;
+
+        &:hover {
+            background: $primary-hover;
+            transform: translateY(-1px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .footnote {
+        font-size: 0.85rem;
+        color: $text-muted;
+        margin-top: 1.25rem;
+
+        a {
+            color: $primary;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $primary-hover;
+            }
+        }
+    }
+
+    .btnSecondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid $border-light;
+        color: $text;
+        padding: 0.75rem 1.75rem;
+        border-radius: $radius-pill;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition:
+            border-color 0.2s,
+            color 0.2s;
+
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+        }
+    }
+}

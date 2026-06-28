@@ -12,6 +12,9 @@ export const ContactSchema = z.object({
         .trim()
         .min(1, 'Phone is required')
         .max(40, 'Phone is too long'),
+    preferredContact: z.enum(['Email', 'Phone', 'Either'], {
+        message: 'Please select a contact method',
+    }),
     message: z.string().trim().max(5000, 'Message is too long').optional(),
 });
 export type ContactSchema = z.infer<typeof ContactSchema>;

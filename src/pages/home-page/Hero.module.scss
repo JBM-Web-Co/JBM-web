@@ -3,176 +3,450 @@
 
 .hero {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    background: $bg;
-    padding-top: $header-height;
-}
-
-.inner {
-    @include container;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
 
-    @include bp.above(tablet) {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-    }
-}
-
-.eyebrow {
-    font-family: $font-body;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: $primary;
-    margin-bottom: 1.25rem;
-}
-
-.headline {
-    font-family: $font-heading;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: $text;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
-.sub {
-    font-family: $font-body;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    color: $text-muted;
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-    max-width: 560px;
-}
-
-.ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid $border;
-
-    @include bp.above(tablet) {
-        gap: 3rem;
-    }
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.statNum {
-    font-family: $font-heading;
-    font-size: 2rem;
-    font-weight: 700;
-    color: $primary;
-
-    @include bp.above(tablet) {
-        font-size: 2.5rem;
-    }
-}
-
-.statLabel {
-    font-family: $font-body;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: $text-muted;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.ctaPrimary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: $primary;
-    color: $primary-fg;
-    padding: 0.9rem 1.85rem;
-    border-radius: $radius;
-    font-family: $font-body;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    min-height: 48px;
-    transition:
-        background 0.2s,
-        transform 0.18s,
-        box-shadow 0.2s;
-
-    &:hover {
-        background: $primary-hover;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba($primary, 0.25);
+    // Decorative radial glow — top right corner
+    &::before {
+        content: '';
+        position: absolute;
+        top: -120px;
+        right: -100px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.08) 0%,
+            transparent 68%
+        );
+        pointer-events: none;
+        border-radius: 50%;
     }
 
-    &:focus-visible {
-        outline: 2px solid $primary;
-        outline-offset: 3px;
-    }
+    /* ── Main content area ── */
+    .inner {
+        @include container;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        // Reduced top padding — just enough to clear the 64px sticky navbar
+        padding-top: 5rem;
+        padding-bottom: 2.5rem;
+        gap: 2rem;
 
-    @media (prefers-reduced-motion: reduce) {
-        &:hover {
-            transform: none;
+        // Mobile only: stack into single column
+        @include bp.below(tablet) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        // Tablet: side-by-side with tighter gap
+        @include bp.above(tablet) {
+            padding-top: 5.5rem;
+            gap: 2rem;
+        }
+
+        // Laptop+: full spacing
+        @include bp.above(laptop) {
+            gap: 5rem;
+            padding-top: 6rem;
         }
     }
-}
 
-.ctaSecondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: $text;
-    padding: 0.9rem 1.85rem;
-    border-radius: $radius;
-    border: 1.5px solid $border;
-    font-family: $font-body;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    min-height: 48px;
-    transition:
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.18s;
+    /* ── Left column ── */
+    .left {
+        flex: 1;
+        min-width: 0;
+    }
 
-    &:hover {
-        border-color: $primary;
+    /* ── Right column ── */
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        flex-shrink: 0;
+        // Tablet: narrower cards
+        width: 210px;
+
+        // Hidden on mobile
+        @include bp.below(tablet) {
+            display: none;
+        }
+
+        // Laptop+: full width
+        @include bp.above(laptop) {
+            width: 290px;
+            gap: 0.9rem;
+        }
+    }
+
+    /* ── Badge ── */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid $border;
+        background: $surface;
+        padding: 0.4rem 1rem;
+        border-radius: $radius-pill;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $text-secondary;
+        margin-bottom: 1.25rem;
+
+        @include bp.above(laptop) {
+            margin-bottom: 1.75rem;
+        }
+    }
+
+    .badgeDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $success;
+        flex-shrink: 0;
+        animation: pulse 2s ease-in-out infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+    }
+
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.4;
+        }
+    }
+
+    /* ── Heading ── */
+    .title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 1rem;
+        letter-spacing: -0.035em;
+        line-height: 1.06;
+
+        // Tablet: scaled down to sit comfortably beside the cards
+        @include bp.above(tablet) {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+        }
+
+        // Laptop+: full size
+        @include bp.above(laptop) {
+            font-size: 4.25rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    .highlight {
         color: $primary;
-        transform: translateY(-2px);
     }
 
-    &:focus-visible {
-        outline: 2px solid $primary;
-        outline-offset: 3px;
+    /* ── Body copy ── */
+    .subtitle {
+        font-size: 1rem;
+        color: $text-secondary;
+        max-width: 520px;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+
+        @include bp.above(laptop) {
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+        }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    .priceLine {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $primary;
+        margin-bottom: 1.5rem;
+
+        @include bp.above(laptop) {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    /* ── Actions ── */
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .btnPrimary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: $primary;
+        color: #fff;
+        padding: 0.7rem 1.5rem;
+        border-radius: $radius-pill;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+            background 0.2s,
+            transform 0.2s,
+            box-shadow 0.2s;
+
+        @include bp.above(laptop) {
+            padding: 0.8rem 1.9rem;
+            font-size: 0.95rem;
+        }
+
         &:hover {
-            transform: none;
+            background: $primary-hover;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(37, 99, 235, 0.28);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            &:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .btnSecondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1.5px solid $border-light;
+        color: $text;
+        padding: 0.7rem 1.5rem;
+        border-radius: $radius-pill;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+            border-color 0.2s,
+            color 0.2s;
+
+        @include bp.above(laptop) {
+            padding: 0.8rem 1.9rem;
+            font-size: 0.95rem;
+        }
+
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+        }
+    }
+
+    .microReassurance {
+        font-size: 0.8rem;
+        color: $text-muted;
+        margin-top: 0.75rem;
+    }
+
+    /* ── Gradient stat cards ── */
+    .statCard {
+        // Tablet: compact
+        padding: 0.9rem 1.1rem;
+        border-radius: $radius;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.25s;
+        cursor: default;
+
+        @include bp.above(laptop) {
+            padding: 1.4rem 1.6rem;
+        }
+
+        // Shimmer overlay
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.14) 0%,
+                transparent 55%
+            );
+            pointer-events: none;
+        }
+
+        // Hover straighten wherever cards are visible (tablet+)
+        @include bp.above(tablet) {
+            &:hover {
+                transform: rotate(0deg) translateY(-4px) !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transform: none !important;
+
+            &:hover {
+                transform: none !important;
+            }
+        }
+    }
+
+    // Individual card gradients + rotations (tablet+ — wherever cards are visible)
+    .card1 {
+        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+
+        @include bp.above(tablet) {
+            transform: rotate(-2deg);
+        }
+    }
+
+    .card2 {
+        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+
+        @include bp.above(tablet) {
+            transform: rotate(1.5deg);
+        }
+    }
+
+    .card3 {
+        background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+
+        @include bp.above(tablet) {
+            transform: rotate(-0.8deg);
+        }
+    }
+
+    .statCardIcon {
+        // Tablet: smaller icon box
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.6rem;
+        position: relative;
+        z-index: 1;
+
+        @include bp.above(laptop) {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-bottom: 0.85rem;
+        }
+    }
+
+    .statValue {
+        font-family: $font-heading;
+        // Tablet: smaller
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.15rem;
+        position: relative;
+        z-index: 1;
+
+        @include bp.above(laptop) {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+    }
+
+    .statLabel {
+        // Tablet: smaller
+        font-size: 0.68rem;
+        opacity: 0.8;
+        line-height: 1.4;
+        position: relative;
+        z-index: 1;
+
+        @include bp.above(laptop) {
+            font-size: 0.8rem;
+        }
+    }
+
+    /* ── Bottom bar ── */
+    .heroBottom {
+        border-top: 1px solid $border;
+        padding-block: 1.4rem;
+    }
+
+    .bottomInner {
+        @include container;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    .bottomStats {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        @include bp.below(tablet) {
+            gap: 1.25rem;
+        }
+    }
+
+    .bottomStat {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .bottomStatValue {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $primary;
+        line-height: 1;
+    }
+
+    .bottomStatLabel {
+        font-size: 0.75rem;
+        color: $text-muted;
+        white-space: nowrap;
+    }
+
+    /* ── Scroll indicator ── */
+    .scrollIndicator {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1.5px solid $border;
+        color: $text-muted;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        animation: bounce 2s ease-in-out infinite;
+        transition:
+            border-color 0.2s,
+            color 0.2s;
+
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(5px);
         }
     }
 }

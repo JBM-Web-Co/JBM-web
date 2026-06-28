@@ -1,100 +1,83 @@
-import { Phone, Mail, Clock } from 'lucide-react';
-import { BUSINESS_DATA } from '../business-data';
+import { Link } from 'react-router';
+import { BUSINESS_DATA, GOOGLE_REVIEW_URL } from '../business-data';
+import { FacebookIcon } from './SocialIcons';
 import s from './Footer.module.scss';
 
 export function Footer() {
     return (
         <footer className={s.footer}>
             <div className={s.inner}>
-                <div className={s.grid}>
+                <div className={s.top}>
                     <div className={s.brand}>
-                        <a
-                            href="#"
-                            className={s.logoText}
-                            aria-label={`${BUSINESS_DATA.name} — home`}
-                        >
-                            {BUSINESS_DATA.name}
-                        </a>
+                        <Link to="/" className={s.logo}>
+                            <img
+                                src="/horizontal_logo.svg"
+                                alt={BUSINESS_DATA.name}
+                                className={s.logoImg}
+                            />
+                        </Link>
                         <p className={s.tagline}>{BUSINESS_DATA.tagline}</p>
-                        <p className={s.desc}>{BUSINESS_DATA.description}</p>
-                        {BUSINESS_DATA.online.facebook && (
-                            <a
-                                href={BUSINESS_DATA.online.facebook}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={s.social}
-                                aria-label={`${BUSINESS_DATA.name} on Facebook`}
-                            >
-                                <svg
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                </svg>
-                                <span>{BUSINESS_DATA.name}</span>
-                            </a>
-                        )}
                     </div>
-
-                    <div>
-                        <div className={s.colTitle}>Quick Links</div>
-                        <div className={s.links}>
-                            {BUSINESS_DATA.navItems.map((item) => (
-                                <a
-                                    key={item.href}
-                                    href={item.href}
-                                    className={s.link}
-                                >
-                                    {item.label}
-                                </a>
-                            ))}
+                    <nav className={s.nav} aria-label="Footer navigation">
+                        <div className={s.navGroup}>
+                            <div className={s.navTitle}>Quick Links</div>
+                            <Link to="/" className={s.navLink}>
+                                Home
+                            </Link>
+                            <Link to="/#pricing" className={s.navLink}>
+                                Pricing
+                            </Link>
+                            <Link to="/#faq" className={s.navLink}>
+                                FAQs
+                            </Link>
+                            <Link to="/#contact" className={s.navLink}>
+                                Contact
+                            </Link>
+                            <Link to="/terms" className={s.navLink}>
+                                Terms of Service
+                            </Link>
                         </div>
-                    </div>
-
-                    <div>
-                        <div className={s.colTitle}>Contact</div>
-                        <div className={s.contactItems}>
+                        <div className={s.navGroup}>
+                            <div className={s.navTitle}>Get in Touch</div>
+                            <a
+                                href={`mailto:${BUSINESS_DATA.contact.email}`}
+                                className={s.navLink}
+                            >
+                                {BUSINESS_DATA.contact.email}
+                            </a>
                             <a
                                 href={`tel:${BUSINESS_DATA.contact.phone.replace(/\s/g, '')}`}
-                                className={s.contactItem}
+                                className={s.navLink}
                             >
-                                <Phone size={16} className={s.contactIcon} />
                                 {BUSINESS_DATA.contact.phone}
                             </a>
                             <a
-                                href={`mailto:${BUSINESS_DATA.contact.email}`}
-                                className={s.contactItem}
+                                href={GOOGLE_REVIEW_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={s.navLink}
                             >
-                                <Mail size={16} className={s.contactIcon} />
-                                {BUSINESS_DATA.contact.email}
+                                Leave us a Review
                             </a>
-                            <div className={s.contactItem}>
-                                <Clock size={16} className={s.contactIcon} />
-                                <span>{BUSINESS_DATA.hours}</span>
+                            <div className={s.social}>
+                                <a
+                                    href={BUSINESS_DATA.online.facebook}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`${BUSINESS_DATA.name} on Facebook`}
+                                    className={s.socialLink}
+                                >
+                                    <FacebookIcon className={s.socialIcon} />
+                                </a>
                             </div>
                         </div>
-                    </div>
+                    </nav>
                 </div>
-
                 <div className={s.bottom}>
-                    <span>
+                    <p className={s.copyright}>
                         &copy; {new Date().getFullYear()} {BUSINESS_DATA.name}.
-                        All rights reserved.
-                    </span>
-                    <span className={s.attribution}>
-                        Website by{' '}
-                        <a
-                            href="https://www.jbmweb.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={s.attributionLink}
-                        >
-                            JBM Web Co
-                        </a>
-                    </span>
+                        All rights reserved. | {BUSINESS_DATA.abn}
+                    </p>
                 </div>
             </div>
         </footer>

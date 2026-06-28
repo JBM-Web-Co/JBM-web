@@ -30,13 +30,10 @@
     flex-shrink: 0;
 }
 
-.logoText {
-    font-family: $font-heading;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: $text;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+.logoImg {
+    display: block;
+    height: 40px;
+    width: auto;
 }
 
 .nav {

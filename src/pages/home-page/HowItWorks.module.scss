@@ -1,0 +1,140 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.howItWorks {
+    padding-block: 5rem;
+    background: $surface;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+
+    @include bp.above(tablet) {
+        padding-block: 7rem;
+    }
+
+    .inner {
+        @include container;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: $primary;
+        margin-bottom: 0.75rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.03em;
+
+        @include bp.above(tablet) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        color: $text-secondary;
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        @include bp.above(tablet) {
+            flex-direction: row;
+            gap: 0;
+            align-items: flex-start;
+        }
+    }
+
+    .step {
+        position: relative;
+        width: 100%;
+
+        @include bp.above(tablet) {
+            flex: 1;
+            padding-right: 2.5rem;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            // Dashed connector to next step
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 23px; // vertically centred on the 48px number circle
+                left: calc(48px + 1rem);
+                right: 0;
+                height: 0;
+                border-top: 2px dashed rgba(37, 99, 235, 0.2);
+
+                @media (prefers-reduced-motion: reduce) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .stepNumber {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-heading;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .stepTitle {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: $text;
+        margin-bottom: 0.35rem;
+    }
+
+    .stepTimeline {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $primary;
+        background: $primary-light;
+        padding: 0.2rem 0.65rem;
+        border-radius: $radius-pill;
+        margin-bottom: 0.65rem;
+    }
+
+    .stepDesc {
+        font-size: 0.9rem;
+        color: $text-secondary;
+        line-height: 1.65;
+    }
+}

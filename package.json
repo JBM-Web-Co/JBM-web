@@ -1,5 +1,5 @@
 {
-    "name": "landing-page-template",
+    "name": "JBM-web",
     "private": true,
     "version": "1.0.0",
     "type": "module",
@@ -31,6 +31,7 @@
         "react-email": "^6.6.5",
         "react-router": "^8.0.1",
         "resend": "^6.14.0",
+        "stripe": "22.3.0",
         "zod": "^4.4.3"
     },
     "devDependencies": {

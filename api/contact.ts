@@ -8,12 +8,27 @@ import type {
 } from './_src/utils/contact-schema.js';
 import { sendEmail } from './_src/utils/send-email.js';
 import { ContactEmail } from './_src/emails/Contact.js';
+import { sendLeadToAirtable } from './_src/airtable-lead.js';
+import { onboardingEmail } from './_src/onboarding-email.js';
 
 const FROM_EMAIL = process.env.FROM_EMAIL ?? '';
 const TO_EMAIL = process.env.TO_EMAIL ?? '';
 
-// TODO (per-client): set the sender display name shown in the notification email.
-const SENDER_NAME = 'CHANGE_ME' as const;
+const SENDER_NAME = 'JBM Web Co' as const;
+
+const log_rejection = (
+    message: string,
+    result: PromiseSettledResult<unknown>
+): void => {
+    if (result.status === 'rejected') {
+        logger.error(message, {
+            error:
+                result.reason instanceof Error
+                    ? result.reason.message
+                    : String(result.reason),
+        });
+    }
+};
 
 const validate_request = (req: VercelRequest): ContactRequest => {
     // --- Request validation ---
@@ -75,7 +90,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             return res.status(200).json({ ok: true });
         }
 
-        await contact_email(contact_data);
+        // Run all three side effects together. Airtable is the critical one:
+        // if the lead isn't saved we surface a 500. The two emails are best
+        // effort — a failure is logged but doesn't fail the request.
+        const [airtable, onboard_email, notification_email] =
+            await Promise.allSettled([
+                sendLeadToAirtable(contact_data),
+                onboardingEmail(contact_data),
+                contact_email(contact_data),
+            ]);
+
+        if (airtable.status === 'rejected') {
+            log_rejection('Failed to send lead to Airtable', airtable);
+            return res.status(500).json({
+                error: 'Failed to save lead data. Please try again later.',
+            });
+        }
+
+        log_rejection('Failed to send onboarding email', onboard_email);
+        log_rejection('Failed to send notification email', notification_email);
+
         return res.status(200).json({ ok: true });
     } catch (err) {
         if (err instanceof HttpError) {

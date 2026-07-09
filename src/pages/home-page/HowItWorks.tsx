@@ -11,24 +11,24 @@ type Step = {
 const STEPS: readonly Step[] = [
     {
         number: '01',
-        title: 'Strategy & Planning',
+        title: 'Strategy & planning',
         timeline: 'Week 1',
         description:
-            'We review your business, audience, and goals to explore example layouts and plan your page structure.',
+            'We review your business, audience, and goals, then map out example layouts and page structure.',
     },
     {
         number: '02',
-        title: 'Build & Refinement',
+        title: 'Build & refinement',
         timeline: 'Week 2–3',
         description:
-            'We customise your landing page with your branding, content, and calls to action, then refine with your feedback.',
+            'We build your page with your branding, content, and calls to action, then refine it with your feedback.',
     },
     {
         number: '03',
-        title: 'Launch & Ongoing Management',
+        title: 'Launch & ongoing management',
         timeline: 'Week 4+',
         description:
-            'Your page goes live and starts generating enquiries. Hosting, SSL, monitoring, and ongoing revisions are all included.',
+            'Your page goes live and starts generating enquiries. Hosting, SSL, monitoring, and revisions are all included.',
     },
 ] as const;
 
@@ -41,7 +41,7 @@ export function HowItWorks() {
                 <div className={s.header}>
                     <div className={s.label}>How It Works</div>
                     <h2 className={s.title}>
-                        From Brief to Live in Four Weeks
+                        From brief to live in four weeks
                     </h2>
                     <p className={s.subtitle}>
                         A clear, structured process — no tech skills needed. We
@@ -64,10 +64,10 @@ export function HowItWorks() {
                             }}
                         >
                             <div className={s.stepNumber}>{step.number}</div>
-                            <h3 className={s.stepTitle}>{step.title}</h3>
                             <div className={s.stepTimeline}>
                                 {step.timeline}
                             </div>
+                            <h3 className={s.stepTitle}>{step.title}</h3>
                             <p className={s.stepDesc}>{step.description}</p>
                         </motion.div>
                     ))}

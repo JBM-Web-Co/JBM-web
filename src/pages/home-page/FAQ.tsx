@@ -17,7 +17,7 @@ export function FAQ() {
             <div className={s.inner}>
                 <div className={s.header}>
                     <div className={s.label}>FAQs</div>
-                    <h2 className={s.title}>Frequently Asked Questions</h2>
+                    <h2 className={s.title}>Frequently asked questions</h2>
                     <p className={s.subtitle}>
                         Got questions? Here are answers to the most common ones.
                     </p>

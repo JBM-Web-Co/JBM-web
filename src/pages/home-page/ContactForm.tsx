@@ -5,7 +5,7 @@ import { BUSINESS_DATA } from '../../business-data';
 
 const NEXT_STEPS = [
     'We send you an onboarding form to capture your business details',
-    'Once submitted, we send you an deposit invoice',
+    'Once submitted, we send you a deposit invoice',
     'Once paid, your build begins',
 ];
 
@@ -72,13 +72,13 @@ export function ContactForm() {
             <div className={s.inner}>
                 <div className={s.header}>
                     <div className={s.label}>Contact</div>
-                    <h2 className={s.title}>Ready to Get More Leads?</h2>
+                    <h2 className={s.title}>Ready to get more leads?</h2>
                     <p className={s.subtitle}>
                         Tell us about your business and we&apos;ll get back to
                         you within 24 hours with a clear plan.
                     </p>
                     <p className={s.urgency}>
-                        Limited build slots each month. Enquire early to secure
+                        Limited build slots each month — enquire early to secure
                         your spot.
                     </p>
                 </div>

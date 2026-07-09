@@ -10,6 +10,26 @@ $accent: #f59e0b;
 $accent-hover: #d97706;
 $accent-amber: #f59e0b;
 
+// ── Landing-page comp palette (warm paper + navy ink) ──
+// Sourced from the Claude Design comp. Light-only; exact oklch values.
+$paper: oklch(98.2% 0.004 75); // page / hero / how-it-works / faq background
+$paper-alt: oklch(
+    96% 0.006 75
+); // alternating section background (why-us, pricing, contact)
+$ink: oklch(18% 0.03 260); // headings
+$ink-body: oklch(22% 0.03 260); // base body text
+$ink-dark: oklch(20% 0.04 260); // dark surfaces (footer, pricing header)
+$cta-dark: oklch(22% 0.05 260); // navy "Call Now" pill
+$navy: #2f416c; // wordmark navy
+$text-body: oklch(42% 0.02 260); // paragraph copy
+$text-soft: oklch(52% 0.015 260); // muted / captions
+$eyebrow: oklch(55% 0.02 260); // category eyebrow labels
+$hairline: oklch(88% 0.012 260); // grid / card borders
+$hairline-soft: oklch(90% 0.01 260); // lighter dividers
+$badge-amber-bg: oklch(90% 0.05 75 / 0.55); // week badge background
+$badge-amber-fg: #92400e; // week badge text
+$check-bg: oklch(90% 0.05 145); // pricing check circle
+
 // Theme-switching tokens (powered by CSS custom properties in global.scss)
 $bg: var(--bg);
 $surface: var(--surface);
@@ -27,7 +47,7 @@ $shadow: var(--shadow);
 $shadow-lg: var(--shadow-lg);
 
 // Layout
-$header-height: 72px;
+$header-height: 76px;
 $radius: 16px;
 $radius-sm: 12px;
 $radius-xs: 8px;

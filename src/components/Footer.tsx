@@ -9,12 +9,13 @@ export function Footer() {
             <div className={s.inner}>
                 <div className={s.top}>
                     <div className={s.brand}>
-                        <Link to="/" className={s.logo}>
-                            <img
-                                src="/horizontal_logo.svg"
-                                alt={BUSINESS_DATA.name}
-                                className={s.logoImg}
-                            />
+                        <Link
+                            to="/"
+                            className={s.logo}
+                            aria-label={`${BUSINESS_DATA.name} — home`}
+                        >
+                            <span className={s.logoMark}>JBM</span>
+                            <span className={s.logoWord}>Web Co</span>
                         </Link>
                         <p className={s.tagline}>{BUSINESS_DATA.tagline}</p>
                     </div>

@@ -1,29 +1,8 @@
 import type { MouseEvent } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Target, Zap, Shield } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import s from './Hero.module.scss';
 import { BUSINESS_DATA } from '../../business-data';
-
-const STAT_CARDS = [
-    {
-        icon: <Target size={22} />,
-        value: 'Lead-Focused',
-        label: 'Built to generate enquiries',
-        gradient: 'card1',
-    },
-    {
-        icon: <Zap size={22} />,
-        value: 'Fast Delivery',
-        label: 'Live in as little as 3–4 weeks',
-        gradient: 'card2',
-    },
-    {
-        icon: <Shield size={22} />,
-        value: 'Fully Managed',
-        label: 'Hosting & support included',
-        gradient: 'card3',
-    },
-] as const;
 
 const BOTTOM_STATS = [
     { value: '99.9%', label: 'Uptime guaranteed' },
@@ -50,6 +29,9 @@ export function Hero() {
 
     return (
         <section className={s.hero}>
+            <span className={s.glowTop} aria-hidden="true" />
+            <span className={s.glowBottom} aria-hidden="true" />
+
             <div className={s.inner}>
                 {/* ── Left column ── */}
                 <div className={s.left}>
@@ -61,20 +43,23 @@ export function Hero() {
                     </motion.div>
 
                     <motion.h1 className={s.title} {...anim(0.4)}>
-                        Landing Pages That
-                        <span className={s.highlight}> Convert</span> Your
-                        Visitors Into Customers
+                        Landing pages that
+                        <br />
+                        <span className={s.highlight}>convert</span> your
+                        visitors
+                        <br />
+                        into customers.
                     </motion.h1>
 
                     <motion.p className={s.subtitle} {...anim(0.5)}>
                         More calls. More enquiries. We build, host, and manage
-                        your landing page so you can focus on running your
-                        business.
+                        your landing page so every visitor has a clear reason to
+                        call.
                     </motion.p>
 
                     <motion.p className={s.priceLine} {...anim(0.55)}>
                         ${BUSINESS_DATA.pricing.setup} upfront, then $
-                        {BUSINESS_DATA.pricing.monthly}/month. Cancel anytime.
+                        {BUSINESS_DATA.pricing.monthly}/month — cancel anytime
                     </motion.p>
 
                     <motion.div className={s.actions} {...anim(0.6)}>
@@ -83,7 +68,7 @@ export function Hero() {
                             className={s.btnPrimary}
                             onClick={scroll_to('contact')}
                         >
-                            Get Started <ArrowRight size={16} />
+                            Get Started <ArrowRight size={17} />
                         </a>
                         <a
                             href="#pricing"
@@ -99,36 +84,76 @@ export function Hero() {
                     </motion.p>
                 </div>
 
-                {/* ── Right column — gradient stat cards ── */}
+                {/* ── Right column — product mockup ── */}
                 <motion.div className={s.right} {...anim(0.55)}>
-                    {STAT_CARDS.map((card) => (
-                        <div
-                            key={card.value}
-                            className={`${s.statCard} ${s[card.gradient]}`}
-                        >
-                            <div className={s.statCardIcon}>{card.icon}</div>
-                            <div className={s.statValue}>{card.value}</div>
-                            <div className={s.statLabel}>{card.label}</div>
+                    <div className={s.mockup} aria-hidden="true">
+                        <div className={s.mockupBar}>
+                            <span className={`${s.dot} ${s.dotRed}`} />
+                            <span className={`${s.dot} ${s.dotAmber}`} />
+                            <span className={`${s.dot} ${s.dotGreen}`} />
+                            <div className={s.mockupUrl}>
+                                yourbusiness.com.au
+                            </div>
                         </div>
-                    ))}
+                        <div className={s.mockupBody}>
+                            <div className={s.mockNav}>
+                                <span className={s.mockLogo} />
+                                <div className={s.mockNavLinks}>
+                                    <span className={s.mockNavLink} />
+                                    <span className={s.mockNavLink} />
+                                    <span className={s.mockNavCta} />
+                                </div>
+                            </div>
+                            <div className={s.mockHeadline}>
+                                <span className={s.mockHeadlineDark} />
+                                <span className={s.mockHeadlineBlue} />
+                            </div>
+                            <div className={s.mockCopy}>
+                                <span className={s.mockCopyLine} />
+                                <span className={s.mockCopyLineShort} />
+                            </div>
+                            <div className={s.mockCtaRow}>
+                                <span className={s.mockCtaPrimary} />
+                                <span className={s.mockCtaGhost} />
+                            </div>
+                            <div className={s.mockImage}>
+                                <span>client photo / hero image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={s.floatBadge}>
+                        <div className={s.floatBadgeIcon}>
+                            <Check size={18} strokeWidth={2.4} />
+                        </div>
+                        <div>
+                            <div className={s.floatBadgeTitle}>
+                                Live in 3–4 weeks
+                            </div>
+                            <div className={s.floatBadgeSub}>
+                                from brief to launch
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
 
-            {/* ── Bottom bar — numerical stats + scroll indicator ── */}
+            {/* ── Bottom stat bar ── */}
             <div className={s.heroBottom}>
                 <div className={s.bottomInner}>
-                    <div className={s.bottomStats}>
-                        {BOTTOM_STATS.map((stat) => (
-                            <div key={stat.value} className={s.bottomStat}>
+                    {BOTTOM_STATS.map((stat, i) => (
+                        <div key={stat.value} className={s.bottomStat}>
+                            {i > 0 && <span className={s.bottomDivider} />}
+                            <span className={s.bottomStatText}>
                                 <span className={s.bottomStatValue}>
                                     {stat.value}
                                 </span>
                                 <span className={s.bottomStatLabel}>
                                     {stat.label}
                                 </span>
-                            </div>
-                        ))}
-                    </div>
+                            </span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

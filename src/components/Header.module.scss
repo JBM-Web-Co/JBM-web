@@ -7,11 +7,10 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid $border;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    background: oklch(98.2% 0.004 75 / 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid $hairline-soft;
     height: $header-height;
 
     .inner {
@@ -49,7 +48,7 @@
         font-family: $font-body;
         font-size: 0.95rem;
         font-weight: 500;
-        color: $text-muted;
+        color: oklch(35% 0.03 260);
         transition: color 0.2s;
         cursor: pointer;
         position: relative;
@@ -83,24 +82,33 @@
     }
 
     .cta {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
-        background: $primary;
-        color: $primary-fg;
-        padding: 0.6rem 1.4rem;
-        border-radius: $radius;
+        gap: 0.5rem;
+        background: $cta-dark;
+        color: #fff;
+        padding: 0.65rem 1.35rem;
+        border-radius: $radius-pill;
         font-family: $font-body;
         font-weight: 700;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
         cursor: pointer;
+        box-shadow: 0 4px 14px oklch(22% 0.05 260 / 0.25);
         transition:
-            background 0.2s,
-            box-shadow 0.2s;
+            transform 0.15s,
+            box-shadow 0.15s;
 
         &:hover {
-            background: $primary-hover;
-            box-shadow: 0 2px 10px rgba($primary, 0.25);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px oklch(22% 0.05 260 / 0.32);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+            &:hover {
+                transform: none;
+            }
         }
     }
 }

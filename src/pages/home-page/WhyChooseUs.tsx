@@ -14,30 +14,30 @@ type CredibilityBlock = {
 const CREDIBILITY_BLOCKS: readonly CredibilityBlock[] = [
     {
         category: 'Process',
-        icon: <ClipboardList size={24} />,
-        heading: 'One Plan, Transparent Pricing',
-        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Everything included, hosting, SSL, monitoring, revisions, and ongoing support. No hidden fees.`,
+        icon: <ClipboardList size={22} />,
+        heading: 'One plan, transparent pricing',
+        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Hosting, SSL, monitoring, revisions and ongoing support — all included. No hidden fees.`,
     },
     {
         category: 'Technical',
-        icon: <Zap size={24} />,
-        heading: 'Fast, SEO-Ready Architecture',
+        icon: <Zap size={22} />,
+        heading: 'Fast, SEO-ready architecture',
         description:
-            'Lightweight, fast-loading pages built on a modern stack with secure hosting and SEO-ready structure from day one.',
+            'Lightweight, fast-loading pages built on a modern stack, with secure hosting and SEO-ready structure from day one.',
     },
     {
         category: 'Operational',
-        icon: <Headphones size={24} />,
-        heading: 'Australian-Based, Direct Communication',
+        icon: <Headphones size={22} />,
+        heading: 'Australian-based, direct communication',
         description:
-            'You deal with us directly, no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
+            'You deal with us directly — no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
     },
     {
         category: 'Risk Reduction',
-        icon: <ShieldCheck size={24} />,
-        heading: 'No Lock-In Contracts',
+        icon: <ShieldCheck size={22} />,
+        heading: 'No lock-in contracts',
         description:
-            'Cancel anytime. Revisions are included, and we can provide a full handover if you ever leave.',
+            "Cancel anytime. Revisions are included, and we'll provide a full handover if you ever decide to leave.",
     },
 ] as const;
 
@@ -50,11 +50,11 @@ export function WhyChooseUs() {
                 <div className={s.header}>
                     <div className={s.label}>Why Us</div>
                     <h2 className={s.title}>
-                        Why Businesses Choose JBM Web Co
+                        Why businesses choose JBM Web Co
                     </h2>
                     <p className={s.subtitle}>
-                        Specialist landing pages backed by transparent process,
-                        honest pricing, and local support.
+                        Specialist landing pages backed by a transparent
+                        process, honest pricing, and local support.
                     </p>
                 </div>
                 <div className={s.grid}>

@@ -1,0 +1,60 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.onboarding {
+    padding: 2.5rem 0 3rem;
+
+    @include bp.above(tablet) {
+        padding: 3rem 0 4rem;
+    }
+
+    .inner {
+        @include container;
+    }
+
+    .title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.02em;
+
+        @include bp.above(tablet) {
+            font-size: 2rem;
+        }
+    }
+
+    .helper {
+        font-size: 0.95rem;
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+
+        @include bp.above(tablet) {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .embed {
+        width: 100%;
+        height: 800px;
+        border: 1px solid $border-light;
+        border-radius: $radius;
+        background: transparent;
+    }
+
+    .fallback {
+        font-size: 0.85rem;
+        color: $text-muted;
+        margin-top: 0.75rem;
+
+        a {
+            color: $primary;
+            text-decoration: underline;
+
+            &:hover {
+                color: $primary-hover;
+            }
+        }
+    }
+}

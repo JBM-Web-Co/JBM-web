@@ -37,7 +37,11 @@ export function Header() {
                     className={s.logo}
                     aria-label={`${BUSINESS_DATA.name} — home`}
                 >
-                    <span className={s.logoText}>{BUSINESS_DATA.name}</span>
+                    <img
+                        src="/horizontal_logo.svg"
+                        alt={BUSINESS_DATA.name}
+                        className={s.logoImg}
+                    />
                 </a>
 
                 <nav className={s.nav} aria-label="Main navigation">

@@ -27,7 +27,7 @@ export function Layout({ children }: LayoutProps) {
                     crossOrigin=""
                 />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
                     rel="stylesheet"
                 />
                 <Meta />

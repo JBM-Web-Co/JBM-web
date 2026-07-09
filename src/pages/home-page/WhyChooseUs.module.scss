@@ -1,0 +1,105 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.whyChooseUs {
+    padding: 5rem 0;
+    background: $paper-alt;
+
+    @include bp.above(tablet) {
+        padding: 6.5rem 0;
+    }
+
+    .inner {
+        @include container;
+    }
+
+    .header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 4rem;
+    }
+
+    .label {
+        font-family: $font-heading;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $primary;
+        margin-bottom: 0.75rem;
+    }
+
+    .title {
+        font-family: $font-heading;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 800;
+        color: $ink;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        color: $text-body;
+        line-height: 1.6;
+    }
+
+    /* ── Bordered bento grid ── */
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        border-top: 1px solid $hairline;
+        border-left: 1px solid $hairline;
+
+        @include bp.above(tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .card {
+        padding: 2.25rem;
+        border-right: 1px solid $hairline;
+        border-bottom: 1px solid $hairline;
+        cursor: default;
+
+        @include bp.above(tablet) {
+            padding: 2.75rem;
+        }
+    }
+
+    .cardIcon {
+        width: 46px;
+        height: 46px;
+        border-radius: 11px;
+        background: $primary;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.4rem;
+    }
+
+    .cardCategory {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $eyebrow;
+        margin-bottom: 0.5rem;
+    }
+
+    .cardHeading {
+        font-family: $font-heading;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $ink;
+        margin-bottom: 0.6rem;
+    }
+
+    .cardDesc {
+        font-size: 0.97rem;
+        color: $text-body;
+        line-height: 1.6;
+    }
+}

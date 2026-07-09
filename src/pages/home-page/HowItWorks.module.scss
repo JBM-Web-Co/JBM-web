@@ -1,0 +1,119 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.howItWorks {
+    padding: 5rem 0;
+    background: $paper;
+
+    @include bp.above(tablet) {
+        padding: 6.5rem 0;
+    }
+
+    .inner {
+        @include container;
+    }
+
+    .header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 4.5rem;
+    }
+
+    .label {
+        font-family: $font-heading;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $primary;
+        margin-bottom: 0.75rem;
+    }
+
+    .title {
+        font-family: $font-heading;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 800;
+        color: $ink;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        color: $text-body;
+        line-height: 1.6;
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        position: relative;
+
+        @include bp.above(tablet) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+
+            // Single connector line behind the number circles
+            &::before {
+                content: '';
+                position: absolute;
+                top: 23px;
+                left: 16.5%;
+                right: 16.5%;
+                height: 2px;
+                background: $hairline;
+                z-index: 0;
+            }
+        }
+    }
+
+    .step {
+        position: relative;
+        z-index: 1;
+    }
+
+    .stepNumber {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: $primary;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-heading;
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .stepTimeline {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: $badge-amber-fg;
+        background: $badge-amber-bg;
+        padding: 0.25rem 0.7rem;
+        border-radius: $radius-pill;
+        margin-bottom: 0.75rem;
+    }
+
+    .stepTitle {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $ink;
+        margin-bottom: 0.6rem;
+    }
+
+    .stepDesc {
+        font-size: 0.95rem;
+        color: $text-body;
+        line-height: 1.6;
+        max-width: 300px;
+    }
+}

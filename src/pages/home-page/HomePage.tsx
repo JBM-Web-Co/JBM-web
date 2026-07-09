@@ -1,9 +1,11 @@
 import type { MetaFunction } from 'react-router';
 import { Hero } from './Hero';
-import { Services } from './Services';
-import { AboutUs } from './AboutUs';
-import { Contact } from './Contact';
 import { BUSINESS_DATA } from '../../business-data';
+import { WhyChooseUs } from './WhyChooseUs';
+import { HowItWorks } from './HowItWorks';
+import { Pricing } from './Pricing';
+import { FAQ } from './FAQ';
+import { ContactForm } from './ContactForm';
 
 const JSON_LD = {
     '@context': 'https://schema.org',
@@ -54,7 +56,7 @@ const JSON_LD = {
             })),
         },
     }),
-};
+} as const;
 
 export const meta: MetaFunction = () => [
     { title: `${BUSINESS_DATA.name} | ${BUSINESS_DATA.tagline}` },
@@ -93,9 +95,11 @@ export default function HomePage() {
     return (
         <>
             <Hero />
-            <AboutUs />
-            <Services />
-            <Contact />
+            <WhyChooseUs />
+            <HowItWorks />
+            <Pricing />
+            <FAQ />
+            <ContactForm />
         </>
     );
 }

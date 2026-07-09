@@ -3,176 +3,493 @@
 
 .hero {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    background: $bg;
-    padding-top: $header-height;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: $paper;
 }
 
+/* ── Decorative radial glows ── */
+.glowTop,
+.glowBottom {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.glowTop {
+    top: -180px;
+    right: -160px;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(
+        circle,
+        oklch(52% 0.19 260 / 0.1) 0%,
+        transparent 70%
+    );
+}
+
+.glowBottom {
+    bottom: -220px;
+    left: -180px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(
+        circle,
+        oklch(75% 0.16 75 / 0.08) 0%,
+        transparent 70%
+    );
+}
+
+/* ── Main content area ── */
 .inner {
     @include container;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
     align-items: center;
-    text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: calc(#{$header-height} + 2.5rem);
+    padding-bottom: 3.5rem;
 
-    @include bp.above(tablet) {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
+    @include bp.above(laptop) {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 4.5rem;
+        padding-top: calc(#{$header-height} + 3.5rem);
+        padding-bottom: 4rem;
     }
 }
 
-.eyebrow {
-    font-family: $font-body;
+.left {
+    min-width: 0;
+}
+
+/* ── Badge ── */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid oklch(88% 0.015 260);
+    background: #fff;
+    padding: 0.45rem 1.1rem 0.45rem 0.9rem;
+    border-radius: $radius-pill;
     font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: oklch(35% 0.03 260);
+    margin-bottom: 1.75rem;
+    box-shadow: 0 1px 2px oklch(0% 0 0 / 0.04);
+}
+
+.badgeDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $accent-amber;
+    flex-shrink: 0;
+    animation: heroPulse 2s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+/* ── Heading ── */
+.title {
+    font-family: $font-heading;
+    font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    color: $ink;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
     color: $primary;
+}
+
+/* ── Body copy ── */
+.subtitle {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: oklch(38% 0.025 260);
+    max-width: 500px;
+    font-weight: 450;
     margin-bottom: 1.25rem;
 }
 
-.headline {
+.priceLine {
     font-family: $font-heading;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.1;
-    color: $text;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
+    color: $primary-hover;
+    margin-bottom: 2rem;
 }
 
-.sub {
-    font-family: $font-body;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    color: $text-muted;
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-    max-width: 560px;
-}
-
-.ctas {
+/* ── Actions ── */
+.actions {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid $border;
-
-    @include bp.above(tablet) {
-        gap: 3rem;
-    }
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
-.statNum {
-    font-family: $font-heading;
-    font-size: 2rem;
-    font-weight: 700;
-    color: $primary;
-
-    @include bp.above(tablet) {
-        font-size: 2.5rem;
-    }
-}
-
-.statLabel {
-    font-family: $font-body;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: $text-muted;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.ctaPrimary {
+.btnPrimary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     background: $primary;
-    color: $primary-fg;
-    padding: 0.9rem 1.85rem;
-    border-radius: $radius;
-    font-family: $font-body;
-    font-weight: 700;
+    color: #fff;
+    padding: 1rem 1.9rem;
+    border-radius: $radius-pill;
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    min-height: 48px;
+    box-shadow: 0 10px 28px oklch(52% 0.19 260 / 0.32);
     transition:
-        background 0.2s,
+        background 0.18s,
         transform 0.18s,
-        box-shadow 0.2s;
+        box-shadow 0.18s;
 
     &:hover {
         background: $primary-hover;
         transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba($primary, 0.25);
-    }
-
-    &:focus-visible {
-        outline: 2px solid $primary;
-        outline-offset: 3px;
+        box-shadow: 0 14px 34px oklch(52% 0.19 260 / 0.4);
     }
 
     @media (prefers-reduced-motion: reduce) {
+        transition: none;
         &:hover {
             transform: none;
         }
     }
 }
 
-.ctaSecondary {
+.btnSecondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: transparent;
-    color: $text;
-    padding: 0.9rem 1.85rem;
-    border-radius: $radius;
-    border: 1.5px solid $border;
-    font-family: $font-body;
-    font-weight: 600;
+    border: 1.5px solid oklch(80% 0.02 260);
+    color: $ink-body;
+    background: #fff;
+    padding: 1rem 1.9rem;
+    border-radius: $radius-pill;
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    min-height: 48px;
     transition:
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.18s;
+        border-color 0.18s,
+        color 0.18s;
 
     &:hover {
         border-color: $primary;
         color: $primary;
-        transform: translateY(-2px);
     }
+}
 
-    &:focus-visible {
-        outline: 2px solid $primary;
-        outline-offset: 3px;
+.microReassurance {
+    font-size: 0.85rem;
+    color: $text-soft;
+}
+
+/* ── Right column — product mockup ── */
+.right {
+    position: relative;
+    padding-bottom: 1.75rem; // room for the hanging float badge
+
+    @include bp.below(laptop) {
+        max-width: 520px;
+        width: 100%;
     }
+}
+
+.mockup {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow:
+        0 30px 70px -20px oklch(20% 0.04 260 / 0.28),
+        0 2px 8px oklch(0% 0 0 / 0.04);
+    border: 1px solid oklch(91% 0.01 260);
+    overflow: hidden;
+    animation: heroFloat 6s ease-in-out infinite;
 
     @media (prefers-reduced-motion: reduce) {
-        &:hover {
-            transform: none;
-        }
+        animation: none;
+    }
+}
+
+.mockupBar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid oklch(92% 0.01 260);
+    background: oklch(97% 0.005 75);
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.dotRed {
+    background: $error;
+}
+.dotAmber {
+    background: $accent-amber;
+}
+.dotGreen {
+    background: $success;
+}
+
+.mockupUrl {
+    margin-left: 0.6rem;
+    flex: 1;
+    background: #fff;
+    border: 1px solid oklch(90% 0.01 260);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.72rem;
+    color: oklch(50% 0.015 260);
+}
+
+.mockupBody {
+    padding: 1.5rem 1.5rem 1.7rem;
+    background: #fff;
+}
+
+.mockNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+}
+
+.mockLogo {
+    width: 62px;
+    height: 9px;
+    border-radius: 3px;
+    background: oklch(22% 0.05 260);
+}
+
+.mockNavLinks {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mockNavLink {
+    width: 26px;
+    height: 7px;
+    border-radius: 3px;
+    background: oklch(88% 0.01 260);
+}
+
+.mockNavCta {
+    width: 44px;
+    height: 16px;
+    border-radius: $radius-pill;
+    background: $primary;
+}
+
+.mockHeadline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+}
+
+.mockHeadlineDark {
+    width: 78%;
+    height: 15px;
+    border-radius: 4px;
+    background: oklch(22% 0.05 260);
+}
+
+.mockHeadlineBlue {
+    width: 55%;
+    height: 15px;
+    border-radius: 4px;
+    background: $primary;
+}
+
+.mockCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+}
+
+.mockCopyLine {
+    width: 90%;
+    height: 7px;
+    border-radius: 3px;
+    background: oklch(90% 0.01 260);
+}
+
+.mockCopyLineShort {
+    width: 65%;
+    height: 7px;
+    border-radius: 3px;
+    background: oklch(90% 0.01 260);
+}
+
+.mockCtaRow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.mockCtaPrimary {
+    width: 92px;
+    height: 26px;
+    border-radius: $radius-pill;
+    background: $primary;
+}
+
+.mockCtaGhost {
+    width: 72px;
+    height: 26px;
+    border-radius: $radius-pill;
+    border: 1.5px solid oklch(85% 0.01 260);
+    background: #fff;
+}
+
+.mockImage {
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+        135deg,
+        oklch(96% 0.006 75),
+        oklch(96% 0.006 75) 9px,
+        oklch(93% 0.008 75) 9px,
+        oklch(93% 0.008 75) 18px
+    );
+
+    span {
+        font-size: 0.68rem;
+        letter-spacing: 0.02em;
+        color: oklch(52% 0.02 260);
+    }
+}
+
+/* ── Floating "Live in 3–4 weeks" badge ── */
+.floatBadge {
+    position: absolute;
+    bottom: -4px;
+    left: -24px;
+    background: $cta-dark;
+    color: #fff;
+    border-radius: 14px;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 16px 34px oklch(20% 0.05 260 / 0.35);
+    min-width: 190px;
+
+    @include bp.below(laptop) {
+        left: 0;
+    }
+}
+
+.floatBadgeIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: $accent-amber;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.floatBadgeTitle {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.1;
+}
+
+.floatBadgeSub {
+    font-size: 0.72rem;
+    color: oklch(85% 0.01 260);
+    margin-top: 0.15rem;
+}
+
+/* ── Bottom stat bar ── */
+.heroBottom {
+    position: relative;
+    border-top: 1px solid oklch(90% 0.01 260);
+    padding-block: 1.6rem;
+}
+
+.bottomInner {
+    @include container;
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+    flex-wrap: wrap;
+}
+
+.bottomStat {
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+}
+
+.bottomDivider {
+    width: 1px;
+    height: 30px;
+    background: oklch(91% 0.01 260);
+}
+
+.bottomStatText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.bottomStatValue {
+    font-family: $font-heading;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: oklch(20% 0.03 260);
+    line-height: 1;
+}
+
+.bottomStatLabel {
+    font-size: 0.78rem;
+    color: $text-soft;
+    white-space: nowrap;
+}
+
+@keyframes heroPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes heroFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
     }
 }

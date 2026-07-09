@@ -12,3 +12,6 @@ api/_src/emails/*.js
 
 # Per-machine Claude Code permissions — must not ship in the template
 .claude/settings.local.json
+
+.vercel
+.env*

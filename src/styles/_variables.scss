@@ -1,48 +1,66 @@
-@use 'breakpoints' as bp;
-
+// ── JBM Web Co – Design Tokens ──
 // Static tokens (don't change with theme)
-$primary: #3775be;
-$primary-hover: #2d64a8;
+$primary: #2563eb;
 $primary-fg: #ffffff;
-$accent: #eab308;
-$accent-hover: #ca8a04;
-$accent-fg: #1a1a1a;
-$danger: #dc2626;
-$success: #16a34a;
-$radius: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
-$font-heading: 'Oswald', sans-serif;
-$font-body: 'Source Sans 3', sans-serif;
-$container: 1200px;
-$header-height: 72px;
+$primary-hover: #1d4ed8;
+$secondary: #10b981;
+$error: #ef4444;
+$success: #10b981;
+$accent: #f59e0b;
+$accent-hover: #d97706;
+$accent-amber: #f59e0b;
+
+// ── Landing-page comp palette (warm paper + navy ink) ──
+// Sourced from the Claude Design comp. Light-only; exact oklch values.
+$paper: oklch(98.2% 0.004 75); // page / hero / how-it-works / faq background
+$paper-alt: oklch(
+    96% 0.006 75
+); // alternating section background (why-us, pricing, contact)
+$ink: oklch(18% 0.03 260); // headings
+$ink-body: oklch(22% 0.03 260); // base body text
+$ink-dark: oklch(20% 0.04 260); // dark surfaces (footer, pricing header)
+$cta-dark: oklch(22% 0.05 260); // navy "Call Now" pill
+$navy: #2f416c; // wordmark navy
+$text-body: oklch(42% 0.02 260); // paragraph copy
+$text-soft: oklch(52% 0.015 260); // muted / captions
+$eyebrow: oklch(55% 0.02 260); // category eyebrow labels
+$hairline: oklch(88% 0.012 260); // grid / card borders
+$hairline-soft: oklch(90% 0.01 260); // lighter dividers
+$badge-amber-bg: oklch(90% 0.05 75 / 0.55); // week badge background
+$badge-amber-fg: #92400e; // week badge text
+$check-bg: oklch(90% 0.05 145); // pricing check circle
 
 // Theme-switching tokens (powered by CSS custom properties in global.scss)
 $bg: var(--bg);
 $surface: var(--surface);
+$surface-2: var(--surface-2);
 $text: var(--text);
+$text-secondary: var(--text-secondary);
 $text-muted: var(--text-muted);
-$text-light: var(--text-light);
 $border: var(--border);
 $border-light: var(--border-light);
+$border-focus: var(--border-focus);
 $primary-light: var(--primary-light);
 $nav-bg: var(--nav-bg);
 $shadow-sm: var(--shadow-sm);
 $shadow: var(--shadow);
 $shadow-lg: var(--shadow-lg);
 
+// Layout
+$header-height: 76px;
+$radius: 16px;
+$radius-sm: 12px;
+$radius-xs: 8px;
+$radius-pill: 9999px;
+$font-heading: 'Outfit', sans-serif;
+$font-body: 'Plus Jakarta Sans', sans-serif;
+$container: 1200px;
+
 @mixin container {
     max-width: $container;
     margin: 0 auto;
-    padding: 0 1.5rem;
-    @include bp.above(tablet) {
-        padding: 0 3rem;
-    }
-}
-
-@mixin section-padding {
-    padding: 5rem 0;
-    @include bp.above(tablet) {
-        padding: 7rem 0;
+    padding-inline: 1.5rem;
+    @media (min-width: 768px) {
+        padding-inline: 3rem;
     }
 }

@@ -1,0 +1,107 @@
+import { motion, useReducedMotion } from 'framer-motion';
+import { Check, ArrowRight } from 'lucide-react';
+import s from './Pricing.module.scss';
+import type { MouseEvent } from 'react';
+import { BUSINESS_DATA } from '../../business-data';
+
+const INCLUSIONS = [
+    'Custom-built landing page',
+    'Mobile-responsive design',
+    'Managed hosting + SSL + backups',
+    'Uptime monitoring',
+    'Domain & DNS wiring',
+    'Contact form + CRM integration',
+    'Basic on-page SEO',
+    'Monthly updates & revisions',
+] as const;
+
+export function Pricing() {
+    const reduced_motion = useReducedMotion() ?? false;
+
+    const anim = (delay: number) =>
+        reduced_motion
+            ? {}
+            : {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: { duration: 0.4, delay },
+              };
+
+    const scroll_to_contact = (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        document
+            .getElementById('contact')
+            ?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <section className={s.pricing} id="pricing">
+            <div className={s.inner}>
+                <motion.div className={s.header} {...anim(0)}>
+                    <div className={s.label}>Pricing</div>
+                    <h2 className={s.title}>One plan. Everything included.</h2>
+                    <p className={s.subtitle}>
+                        No tiers. No add-ons. No surprises.
+                    </p>
+                </motion.div>
+
+                <div className={s.card}>
+                    <div className={s.priceHeader}>
+                        <div className={s.priceRow}>
+                            <div className={s.priceGroup}>
+                                <span className={s.priceLabel}>Setup</span>
+                                <span className={s.priceValue}>
+                                    ${BUSINESS_DATA.pricing.setup}
+                                </span>
+                            </div>
+                            <span className={s.pricePlus}>+</span>
+                            <div className={s.priceGroup}>
+                                <span className={s.priceLabel}>Monthly</span>
+                                <span className={s.priceValue}>
+                                    ${BUSINESS_DATA.pricing.monthly}
+                                    <span className={s.priceUnit}>/mo</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p className={s.priceNote}>
+                            Cancel anytime. No lock-in contracts.
+                        </p>
+                    </div>
+
+                    <div className={s.cardBody}>
+                        <p className={s.valueFrame}>
+                            If your landing page generates just a few extra
+                            enquiries a month, it pays for itself. For most
+                            service businesses, a single extra job covers the
+                            cost many times over.
+                        </p>
+
+                        <h3 className={s.inclusionsTitle}>
+                            Everything you get, included:
+                        </h3>
+                        <ul className={s.features}>
+                            {INCLUSIONS.map((feature) => (
+                                <li key={feature} className={s.feature}>
+                                    <span className={s.featureCheck}>
+                                        <Check size={10} strokeWidth={3} />
+                                    </span>
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+
+                        <a
+                            href="#contact"
+                            className={s.btnPrimary}
+                            onClick={scroll_to_contact}
+                        >
+                            Get Started
+                            <ArrowRight size={17} />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}

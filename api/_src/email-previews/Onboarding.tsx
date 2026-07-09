@@ -1,4 +1,4 @@
-import { ContactEmail } from '../emails/Contact.js';
+import { OnboardingEmail } from '../emails/Onboarding.js';
 import type { ContactSchema } from '../utils/contact-schema.js';
 
 const MOCK_DATA: ContactSchema = {
@@ -10,6 +10,6 @@ const MOCK_DATA: ContactSchema = {
         'Hi, I would like a quote for a kitchen renovation.\nWhat does your availability look like next month?',
 } as const;
 
-export default function ContactPreview() {
-    return <ContactEmail {...MOCK_DATA} />;
+export default function OnboardingPreview() {
+    return <OnboardingEmail {...MOCK_DATA} />;
 }

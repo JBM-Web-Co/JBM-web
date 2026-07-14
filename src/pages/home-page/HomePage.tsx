@@ -3,6 +3,7 @@ import { Hero } from './Hero';
 import { BUSINESS_DATA } from '../../business-data';
 import { WhyChooseUs } from './WhyChooseUs';
 import { HowItWorks } from './HowItWorks';
+import { RecentProjects } from './RecentProjects';
 import { Pricing } from './Pricing';
 import { FAQ } from './FAQ';
 import { ContactForm } from './ContactForm';
@@ -97,6 +98,7 @@ export default function HomePage() {
             <Hero />
             <WhyChooseUs />
             <HowItWorks />
+            <RecentProjects />
             <Pricing />
             <FAQ />
             <ContactForm />

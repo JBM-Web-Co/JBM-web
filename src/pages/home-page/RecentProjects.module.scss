@@ -1,0 +1,209 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as bp;
+
+.recentProjects {
+    padding: 5rem 0;
+    background: $paper;
+
+    @include bp.above(tablet) {
+        padding: 6.5rem 0;
+    }
+
+    .inner {
+        @include container;
+    }
+
+    .header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 3rem;
+
+        @include bp.above(tablet) {
+            margin: 0 auto 4rem;
+        }
+    }
+
+    .label {
+        font-family: $font-heading;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $primary;
+        margin-bottom: 0.75rem;
+    }
+
+    .title {
+        font-family: $font-heading;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 800;
+        color: $ink;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        color: $text-body;
+        line-height: 1.6;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+
+        @include bp.above(tablet) {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    }
+
+    .card {
+        display: block;
+        background: #fff;
+        border: 1px solid $hairline;
+        border-radius: $radius;
+        overflow: hidden;
+        box-shadow: 0 20px 45px -30px oklch(20% 0.04 260 / 0.25);
+        text-decoration: none;
+        transition:
+            transform 0.18s,
+            box-shadow 0.18s;
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-4px);
+            box-shadow: 0 26px 50px -28px oklch(20% 0.04 260 / 0.32);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+            &:hover,
+            &:focus-visible {
+                transform: none;
+            }
+        }
+    }
+
+    /* ── Preview / mini browser mockup ── */
+    .preview {
+        position: relative;
+        background: linear-gradient(
+            155deg,
+            var(--project-accent) 0%,
+            color-mix(in oklab, var(--project-accent) 45%, black) 100%
+        );
+    }
+
+    .previewBar {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.7rem 0.9rem;
+        background: oklch(15% 0.01 260 / 0.25);
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    .dotRed {
+        background: $error;
+    }
+    .dotAmber {
+        background: $accent-amber;
+    }
+    .dotGreen {
+        background: $success;
+    }
+
+    .previewUrl {
+        margin-left: 0.5rem;
+        flex: 1;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        padding: 0.28rem 0.65rem;
+        font-family: $font-body;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .previewBody {
+        position: relative;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.75rem 1.5rem;
+
+        @include bp.above(tablet) {
+            min-height: 170px;
+        }
+    }
+
+    .industryPill {
+        position: absolute;
+        top: 0.9rem;
+        left: 0.9rem;
+        background: oklch(20% 0.04 260 / 0.55);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        padding: 0.3rem 0.7rem;
+        border-radius: $radius-pill;
+    }
+
+    .previewName {
+        font-family: $font-heading;
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+    }
+
+    /* ── Card content ── */
+    .content {
+        padding: 1.6rem 1.6rem 1.8rem;
+    }
+
+    .name {
+        font-family: $font-heading;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: $ink;
+        margin-bottom: 0.3rem;
+    }
+
+    .location {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $eyebrow;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.75rem;
+    }
+
+    .blurb {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: $text-body;
+        margin-bottom: 1.25rem;
+    }
+
+    .visitLink {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: $primary;
+    }
+}

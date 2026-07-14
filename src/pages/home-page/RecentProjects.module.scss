@@ -48,18 +48,49 @@
         line-height: 1.6;
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
+    /* ── Carousel ── */
+    .carousel {
+        position: relative;
+    }
+
+    .track {
+        display: flex;
+        gap: 1.25rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin-inline: -1.5rem;
+        padding-inline: 1.5rem;
+        padding-bottom: 0.5rem;
+        scroll-padding-inline: 1.5rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $primary;
+            outline-offset: 4px;
+        }
 
         @include bp.above(tablet) {
-            grid-template-columns: 1fr 1fr;
             gap: 2rem;
+            margin-inline: 0;
+            padding-inline: 0;
+            scroll-padding-inline: 0;
         }
     }
 
+    .trackCentered {
+        justify-content: center;
+    }
+
     .card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: min(82vw, 320px);
         display: block;
         background: #fff;
         border: 1px solid $hairline;
@@ -84,6 +115,94 @@
                 transform: none;
             }
         }
+
+        @include bp.above(tablet) {
+            width: 360px;
+        }
+
+        @include bp.above(desktop) {
+            width: 380px;
+        }
+    }
+
+    /* ── Carousel controls ── */
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        margin-top: 1.75rem;
+    }
+
+    .navButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 1px solid $hairline;
+        background: #fff;
+        color: $ink;
+        cursor: pointer;
+        transition:
+            background 0.15s,
+            border-color 0.15s,
+            opacity 0.15s;
+
+        &:hover:not(:disabled),
+        &:focus-visible:not(:disabled) {
+            border-color: $primary;
+            color: $primary;
+        }
+
+        &:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+
+    .dots {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pageDot {
+        width: 8px;
+        height: 8px;
+        border-radius: $radius-pill;
+        background: $hairline;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition:
+            background 0.15s,
+            width 0.15s;
+
+        &:hover,
+        &:focus-visible {
+            background: $eyebrow;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+
+    .pageDotActive {
+        width: 20px;
+        background: $primary;
+
+        &:hover,
+        &:focus-visible {
+            background: $primary;
+        }
     }
 
     /* ── Preview / mini browser mockup ── */
@@ -104,19 +223,19 @@
         background: oklch(15% 0.01 260 / 0.25);
     }
 
-    .dot {
+    .trafficDot {
         width: 8px;
         height: 8px;
         border-radius: 50%;
         flex-shrink: 0;
     }
-    .dotRed {
+    .trafficDotRed {
         background: $error;
     }
-    .dotAmber {
+    .trafficDotAmber {
         background: $accent-amber;
     }
-    .dotGreen {
+    .trafficDotGreen {
         background: $success;
     }
 

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /onboarding
+Disallow: /onboarding/thanks
 
 Sitemap: https://www.UPDATEME.com/sitemap.xml

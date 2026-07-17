@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import s from './HowItWorks.module.scss';
+import { SectionHeader } from '../../components/SectionHeader';
 
 type Step = {
     number: string;
@@ -38,16 +39,12 @@ export function HowItWorks() {
     return (
         <section className={s.howItWorks} id="how-it-works">
             <div className={s.inner}>
-                <div className={s.header}>
-                    <div className={s.label}>How It Works</div>
-                    <h2 className={s.title}>
-                        From brief to live in four weeks
-                    </h2>
-                    <p className={s.subtitle}>
-                        A clear, structured process — no tech skills needed. We
-                        handle everything from strategy to launch.
-                    </p>
-                </div>
+                <SectionHeader
+                    className={s.header}
+                    label="How It Works"
+                    title="From brief to live in four weeks"
+                    subtitle="A clear, structured process — no tech skills needed. We handle everything from strategy to launch."
+                />
                 <div className={s.steps}>
                     {STEPS.map((step, i) => (
                         <motion.div

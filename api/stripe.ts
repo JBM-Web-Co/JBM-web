@@ -13,7 +13,7 @@ const MEMO =
 const FOOTER =
     `Thanks for choosing JBM Web Co. If you have any questions, email us at admin@jbmweb.com or call us on 0459560321.
 
-JBM Web Co | ABN: 75779233781 | Armidale, NSW | Payment due within 7 days of invoice date. ` as const;
+JBM Web Co | ABN: 75 779 233 781 | Armidale, NSW | Payment due within 7 days of invoice date. ` as const;
 
 const address_schema = z.object({
     line1: z.string().min(1),

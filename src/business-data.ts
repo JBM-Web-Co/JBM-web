@@ -31,11 +31,6 @@ type OnlinePresence = Readonly<{
     linkedin?: string;
 }>;
 
-type HeroStat = Readonly<{
-    num: string;
-    label: string;
-}>;
-
 type NavItem = Readonly<{
     label: string;
     href: string;
@@ -64,8 +59,6 @@ export type BusinessData = Readonly<{
     employees?: readonly EmployeeContact[];
     online: Readonly<OnlinePresence>;
     serviceAreas: readonly string[];
-    heroStats: readonly HeroStat[];
-    whyUsPoints: readonly string[];
     navItems: readonly NavItem[];
     services: readonly Service[];
 }>;
@@ -76,9 +69,10 @@ export const BUSINESS_DATA: BusinessData = {
         'Landing pages that convert visitors to customers for Australian service businesses',
     description:
         'Specialist landing pages for Australian service businesses. Clear pricing, fast turnaround, and managed hosting — everything included.',
-    hours: 'Mon–Fri: 9am – 5pm AEST',
+    // schema.org OpeningHoursSpecification format (Mon-Fri, 9am-5pm AEST).
+    hours: 'Mo-Fr 09:00-17:00',
 
-    abn: '75779233781',
+    abn: '75 779 233 781',
     pricing: { setup: 499, monthly: 79 },
 
     contact: {
@@ -100,20 +94,6 @@ export const BUSINESS_DATA: BusinessData = {
     },
 
     serviceAreas: ['Australia Wide'],
-
-    heroStats: [
-        { num: '4 Weeks', label: 'Avg. Build Time' },
-        { num: '$79', label: '/Month' },
-        { num: '24h', label: 'Response Time' },
-        { num: '4', label: 'Revisions/Month' },
-    ],
-
-    whyUsPoints: [
-        'Transparent pricing with no hidden fees',
-        'No lock-in contracts, cancel anytime',
-        'Australian-based, direct communication',
-        'Managed hosting and revisions included',
-    ],
 
     navItems: [
         { label: 'Why Us', href: '#why-us' },
@@ -182,7 +162,7 @@ export const FAQS: readonly FAQ[] = [
     },
     {
         question: 'What is the typical timeline?',
-        answer: 'Most landing pages are completed within 2–4 weeks once content and template selection are confirmed.',
+        answer: 'Most landing pages are completed within 3–4 weeks once your content and business details are confirmed.',
     },
     {
         question: 'What if I don’t have branding?',

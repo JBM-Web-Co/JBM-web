@@ -2,12 +2,13 @@ import { ContactFormCard } from './ContactCard';
 import s from './ContactForm.module.scss';
 import { Phone, Mail } from 'lucide-react';
 import { BUSINESS_DATA } from '../../business-data';
+import { SectionHeader } from '../../components/SectionHeader';
 
 const NEXT_STEPS = [
     'We send you an onboarding form to capture your business details',
     'Once submitted, we send you a deposit invoice',
     'Once paid, your build begins',
-];
+] as const;
 
 function ContactDetails() {
     return (
@@ -26,7 +27,7 @@ function ContactDetails() {
                 </p>
                 <ol className={s.stepsList}>
                     {NEXT_STEPS.map((step, i) => (
-                        <li key={i} className={s.stepsItem}>
+                        <li key={step} className={s.stepsItem}>
                             <span className={s.stepsNumber}>{i + 1}</span>
                             {step}
                         </li>
@@ -71,12 +72,12 @@ export function ContactForm() {
         <section className={s.contactForm} id="contact">
             <div className={s.inner}>
                 <div className={s.header}>
-                    <div className={s.label}>Contact</div>
-                    <h2 className={s.title}>Ready to get more leads?</h2>
-                    <p className={s.subtitle}>
-                        Tell us about your business and we&apos;ll get back to
-                        you within 24 hours with a clear plan.
-                    </p>
+                    <SectionHeader
+                        className={s.headerInner}
+                        label="Contact"
+                        title="Ready to get more leads?"
+                        subtitle="Tell us about your business and we'll get back to you within 24 hours with a clear plan."
+                    />
                     <p className={s.urgency}>
                         Limited build slots each month — enquire early to secure
                         your spot.

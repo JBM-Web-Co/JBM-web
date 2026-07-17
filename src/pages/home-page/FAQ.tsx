@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { FAQS } from '../../business-data';
 import s from './FAQ.module.scss';
+import { SectionHeader } from '../../components/SectionHeader';
 
 export function FAQ() {
     const reduced_motion = useReducedMotion() ?? false;
@@ -15,13 +16,12 @@ export function FAQ() {
     return (
         <section className={s.faq} id="faq">
             <div className={s.inner}>
-                <div className={s.header}>
-                    <div className={s.label}>FAQs</div>
-                    <h2 className={s.title}>Frequently asked questions</h2>
-                    <p className={s.subtitle}>
-                        Got questions? Here are answers to the most common ones.
-                    </p>
-                </div>
+                <SectionHeader
+                    className={s.header}
+                    label="FAQs"
+                    title="Frequently asked questions"
+                    subtitle="Got questions? Here are answers to the most common ones."
+                />
                 <div className={s.list}>
                     {FAQS.map((faq, i) => (
                         <motion.div
@@ -41,6 +41,7 @@ export function FAQ() {
                                 className={s.question}
                                 onClick={() => toggle(i)}
                                 aria-expanded={open_index === i}
+                                aria-controls={`faq-answer-${i}`}
                             >
                                 <span>{faq.question}</span>
                                 <ChevronDown
@@ -51,6 +52,7 @@ export function FAQ() {
                             <AnimatePresence>
                                 {open_index === i && (
                                     <motion.div
+                                        id={`faq-answer-${i}`}
                                         className={s.answer}
                                         initial={
                                             reduced_motion

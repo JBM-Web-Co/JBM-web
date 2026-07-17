@@ -4,6 +4,7 @@ import { Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import { track } from '@vercel/analytics';
 import { BUSINESS_DATA } from '../../business-data';
 import s from './ContactForm.module.scss';
+import { Button } from '../../components/Button';
 
 type PreferredContact = 'Email' | 'Phone' | 'Either';
 
@@ -232,9 +233,9 @@ export function ContactFormCard() {
                             onChange={set_field('company')}
                         />
                     </div>
-                    <button
+                    <Button
                         type="submit"
-                        className={s.btnPrimary}
+                        className={s.ctaButton}
                         disabled={loading}
                     >
                         {loading ? (
@@ -247,7 +248,7 @@ export function ContactFormCard() {
                                 <Send size={16} /> Get Started
                             </>
                         )}
-                    </button>
+                    </Button>
                     {submit_error && (
                         <div className={s.errorBanner}>
                             <AlertCircle size={40} />

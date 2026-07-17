@@ -3,6 +3,8 @@ import { Check, ArrowRight } from 'lucide-react';
 import s from './Pricing.module.scss';
 import type { MouseEvent } from 'react';
 import { BUSINESS_DATA } from '../../business-data';
+import { SectionHeader } from '../../components/SectionHeader';
+import { Button } from '../../components/Button';
 
 const INCLUSIONS = [
     'Custom-built landing page',
@@ -12,7 +14,7 @@ const INCLUSIONS = [
     'Domain & DNS wiring',
     'Contact form + CRM integration',
     'Basic on-page SEO',
-    'Monthly updates & revisions',
+    'Four small revisions per month',
 ] as const;
 
 export function Pricing() {
@@ -28,7 +30,9 @@ export function Pricing() {
                   transition: { duration: 0.4, delay },
               };
 
-    const scroll_to_contact = (e: MouseEvent<HTMLAnchorElement>) => {
+    const scroll_to_contact = (
+        e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+    ) => {
         e.preventDefault();
         document
             .getElementById('contact')
@@ -38,12 +42,13 @@ export function Pricing() {
     return (
         <section className={s.pricing} id="pricing">
             <div className={s.inner}>
-                <motion.div className={s.header} {...anim(0)}>
-                    <div className={s.label}>Pricing</div>
-                    <h2 className={s.title}>One plan. Everything included.</h2>
-                    <p className={s.subtitle}>
-                        No tiers. No add-ons. No surprises.
-                    </p>
+                <motion.div {...anim(0)}>
+                    <SectionHeader
+                        className={s.header}
+                        label="Pricing"
+                        title="One plan. Everything included."
+                        subtitle="No tiers. No add-ons. No surprises."
+                    />
                 </motion.div>
 
                 <div className={s.card}>
@@ -91,14 +96,14 @@ export function Pricing() {
                             ))}
                         </ul>
 
-                        <a
+                        <Button
                             href="#contact"
-                            className={s.btnPrimary}
+                            className={s.ctaButton}
                             onClick={scroll_to_contact}
                         >
                             Get Started
                             <ArrowRight size={17} />
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>

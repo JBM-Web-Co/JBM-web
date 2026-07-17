@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import s from './Hero.module.scss';
 import { BUSINESS_DATA } from '../../business-data';
+import { Button } from '../../components/Button';
 
 const BOTTOM_STATS = [
     { value: '99.9%', label: 'Uptime guaranteed' },
@@ -22,10 +23,12 @@ export function Hero() {
                   transition: { duration: 0.5, delay },
               };
 
-    const scroll_to = (id: string) => (e: MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const scroll_to =
+        (id: string) =>
+        (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+            e.preventDefault();
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        };
 
     return (
         <section className={s.hero}>
@@ -63,20 +66,21 @@ export function Hero() {
                     </motion.p>
 
                     <motion.div className={s.actions} {...anim(0.6)}>
-                        <a
+                        <Button
                             href="#contact"
-                            className={s.btnPrimary}
+                            className={s.heroCtaPrimary}
                             onClick={scroll_to('contact')}
                         >
                             Get Started <ArrowRight size={17} />
-                        </a>
-                        <a
+                        </Button>
+                        <Button
                             href="#pricing"
-                            className={s.btnSecondary}
+                            variant="secondary"
+                            className={s.heroCtaSecondary}
                             onClick={scroll_to('pricing')}
                         >
                             View Pricing
-                        </a>
+                        </Button>
                     </motion.div>
 
                     <motion.p className={s.microReassurance} {...anim(0.65)}>

@@ -1,12 +1,13 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ClipboardList, Zap, Headphones, ShieldCheck } from 'lucide-react';
 import s from './WhyChooseUs.module.scss';
-import React from 'react';
+import type { ReactNode } from 'react';
 import { BUSINESS_DATA } from '../../business-data';
+import { SectionHeader } from '../../components/SectionHeader';
 
 type CredibilityBlock = {
     category: string;
-    icon: React.ReactNode;
+    icon: ReactNode;
     heading: string;
     description: string;
 };
@@ -47,16 +48,11 @@ export function WhyChooseUs() {
     return (
         <section className={s.whyChooseUs} id="why-us">
             <div className={s.inner}>
-                <div className={s.header}>
-                    <div className={s.label}>Why Us</div>
-                    <h2 className={s.title}>
-                        Why businesses choose JBM Web Co
-                    </h2>
-                    <p className={s.subtitle}>
-                        Specialist landing pages backed by a transparent
-                        process, honest pricing, and local support.
-                    </p>
-                </div>
+                <SectionHeader
+                    label="Why Us"
+                    title="Why businesses choose JBM Web Co"
+                    subtitle="Specialist landing pages backed by a transparent process, honest pricing, and local support."
+                />
                 <div className={s.grid}>
                     {CREDIBILITY_BLOCKS.map((block, i) => (
                         <motion.div

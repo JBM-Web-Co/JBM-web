@@ -86,7 +86,7 @@
         align-items: center;
         gap: 0.5rem;
         background: $cta-dark;
-        color: #fff;
+        color: $primary-fg;
         padding: 0.65rem 1.35rem;
         border-radius: $radius-pill;
         font-family: $font-body;
@@ -133,7 +133,7 @@
     top: $header-height;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: $primary-fg;
     border-bottom: 1px solid $border;
     padding: 1.25rem 1.5rem 1.5rem;
     display: flex;

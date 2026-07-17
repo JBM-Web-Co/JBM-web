@@ -1,7 +1,7 @@
-import { Link } from 'react-router';
 import { CircleCheckBig } from 'lucide-react';
 import type { MetaFunction } from 'react-router';
 import s from './ThanksOnboarding.module.scss';
+import { Button } from '../../components/Button';
 
 export const meta: MetaFunction = () => [
     { title: "JBM Web Co | Thanks — We'll Be in Touch" },
@@ -42,9 +42,9 @@ export default function ThanksOnboarding() {
                     phase.
                 </p>
                 <div className={s.actions}>
-                    <Link to="/" className={s.btnPrimary}>
+                    <Button to="/" className={s.thanksCta}>
                         Back to home
-                    </Link>
+                    </Button>
                 </div>
                 <p className={s.footnote}>
                     Need to add something? Email us at{' '}

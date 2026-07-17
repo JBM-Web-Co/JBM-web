@@ -14,34 +14,7 @@
     }
 
     .header {
-        text-align: center;
-        max-width: 640px;
-        margin: 0 auto 4.5rem;
-    }
-
-    .label {
-        font-family: $font-heading;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: $primary;
-        margin-bottom: 0.75rem;
-    }
-
-    .title {
-        font-family: $font-heading;
-        font-size: clamp(1.9rem, 3vw, 2.6rem);
-        font-weight: 800;
-        color: $ink;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-        font-size: 1.05rem;
-        color: $text-body;
-        line-height: 1.6;
+        margin-bottom: 4.5rem;
     }
 
     .steps {
@@ -78,7 +51,7 @@
         height: 46px;
         border-radius: 50%;
         background: $primary;
-        color: #fff;
+        color: $primary-fg;
         display: flex;
         align-items: center;
         justify-content: center;

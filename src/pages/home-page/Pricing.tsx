@@ -7,7 +7,7 @@ import { SectionHeader } from '../../components/SectionHeader';
 import { Button } from '../../components/Button';
 
 const INCLUSIONS = [
-    'Custom-built landing page',
+    'Custom-built website',
     'Mobile-responsive design',
     'Managed hosting + SSL + backups',
     'Uptime monitoring',
@@ -76,10 +76,11 @@ export function Pricing() {
 
                     <div className={s.cardBody}>
                         <p className={s.valueFrame}>
-                            If your landing page generates just a few extra
-                            enquiries a month, it pays for itself. For most
-                            service businesses, a single extra job covers the
-                            cost many times over.
+                            If your website brings in just a few extra enquiries
+                            a month, it pays for itself many times over.
+                            Whatever your site is for, it&apos;s a small price
+                            for a professional web presence that&apos;s fully
+                            managed for you.
                         </p>
 
                         <h3 className={s.inclusionsTitle}>

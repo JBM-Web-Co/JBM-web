@@ -71,8 +71,7 @@ const FAQ_JSON_LD = {
     })),
 } as const;
 
-// Kept to 60 characters so it doesn't truncate in search results.
-const PAGE_TITLE = `${BUSINESS_DATA.name} | Landing Pages for Australian Service Businesses`;
+const PAGE_TITLE = `${BUSINESS_DATA.name} | Custom Websites, Built & Managed`;
 
 export const meta: MetaFunction = () => [
     { title: PAGE_TITLE },

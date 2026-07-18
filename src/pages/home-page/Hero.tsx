@@ -41,23 +41,23 @@ export function Hero() {
                     <motion.div {...anim(0.3)}>
                         <div className={s.badge}>
                             <span className={s.badgeDot} />
-                            Landing pages for Australian service businesses
+                            Custom websites — built, hosted & managed
                         </div>
                     </motion.div>
 
                     <motion.h1 className={s.title} {...anim(0.4)}>
-                        Landing pages that
+                        Websites that
                         <br />
                         <span className={s.highlight}>convert</span> your
                         visitors
                         <br />
-                        into customers.
+                        into results.
                     </motion.h1>
 
                     <motion.p className={s.subtitle} {...anim(0.5)}>
-                        More calls. More enquiries. We build, host, and manage
-                        your landing page so every visitor has a clear reason to
-                        call.
+                        More enquiries. More bookings. More attention. We build,
+                        host, and manage your website so every visitor knows
+                        exactly what to do next.
                     </motion.p>
 
                     <motion.p className={s.priceLine} {...anim(0.55)}>
@@ -96,7 +96,7 @@ export function Hero() {
                             <span className={`${s.dot} ${s.dotAmber}`} />
                             <span className={`${s.dot} ${s.dotGreen}`} />
                             <div className={s.mockupUrl}>
-                                yourbusiness.com.au
+                                yourwebsite.com.au
                             </div>
                         </div>
                         <div className={s.mockupBody}>

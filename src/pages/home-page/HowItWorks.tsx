@@ -15,7 +15,7 @@ const STEPS: readonly Step[] = [
         title: 'Strategy & planning',
         timeline: 'Week 1',
         description:
-            'We review your business, audience, and goals, then map out example layouts and page structure.',
+            'We review your goals, audience, and content, then map out example layouts and page structure.',
     },
     {
         number: '02',
@@ -29,7 +29,7 @@ const STEPS: readonly Step[] = [
         title: 'Launch & ongoing management',
         timeline: 'Week 4+',
         description:
-            'Your page goes live and starts generating enquiries. Hosting, SSL, monitoring, and revisions are all included.',
+            'Your website goes live and starts doing its job. Hosting, SSL, monitoring, and revisions are all included.',
     },
 ] as const;
 

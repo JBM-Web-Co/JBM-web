@@ -66,9 +66,9 @@ export type BusinessData = Readonly<{
 export const BUSINESS_DATA: BusinessData = {
     name: 'JBM Web Co',
     tagline:
-        'Landing pages that convert visitors to customers for Australian service businesses',
+        'Custom websites that turn visitors into results — built, hosted, and managed for you',
     description:
-        'Specialist landing pages for Australian service businesses. Clear pricing, fast turnaround, and managed hosting — everything included.',
+        'Custom-built websites for any need. Clear pricing, fast turnaround, and managed hosting — everything included.',
     // schema.org OpeningHoursSpecification format (Mon-Fri, 9am-5pm AEST).
     hours: 'Mo-Fr 09:00-17:00',
 
@@ -104,9 +104,9 @@ export const BUSINESS_DATA: BusinessData = {
 
     services: [
         {
-            title: 'Landing Page Design & Build',
+            title: 'Website Design & Build',
             description:
-                'Custom-built, conversion-focused landing pages for Australian service businesses.',
+                'Custom-built, conversion-focused websites designed around your goals.',
             iconName: 'briefcase',
         },
         {
@@ -161,15 +161,19 @@ export const FAQS: readonly FAQ[] = [
         answer: 'Absolutely. Domain and DNS wiring is included in every plan. We can register a new domain on your behalf or connect your existing one.',
     },
     {
+        question: 'Do you only build business websites?',
+        answer: 'No. We build websites for any purpose — businesses, portfolios, personal projects, community groups, events, and more. The same plan, pricing, and process applies.',
+    },
+    {
         question: 'What is the typical timeline?',
-        answer: 'Most landing pages are completed within 3–4 weeks once your content and business details are confirmed.',
+        answer: 'Most websites are completed within 3–4 weeks once your content and details are confirmed.',
     },
     {
         question: 'What if I don’t have branding?',
-        answer: 'That\u2019s fine. We can work with your existing logo and colours, or put together a clean, professional look based on your business name, industry, and a simple colour palette. You\u2019ll see it before anything goes live.',
+        answer: 'That\u2019s fine. We can work with your existing logo and colours, or put together a clean, professional look based on your name, what you do, and a simple colour palette. You\u2019ll see it before anything goes live.',
     },
     {
         question: 'Do you write content?',
-        answer: 'Every build includes a content brief and page structure to guide you through what\u2019s needed. Most clients write their own content, you know your business best. If you get stuck, we\u2019re here to help.',
+        answer: 'Every build includes a content brief and page structure to guide you through what\u2019s needed. Most clients write their own content \u2014 nobody knows what you do better than you. If you get stuck, we\u2019re here to help.',
     },
 ] as const;

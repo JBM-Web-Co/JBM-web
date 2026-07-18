@@ -50,8 +50,8 @@ export function WhyChooseUs() {
             <div className={s.inner}>
                 <SectionHeader
                     label="Why Us"
-                    title="Why businesses choose JBM Web Co"
-                    subtitle="Specialist landing pages backed by a transparent process, honest pricing, and local support."
+                    title="Why people choose JBM Web Co"
+                    subtitle="Custom websites backed by a transparent process, honest pricing, and local support."
                 />
                 <div className={s.grid}>
                     {CREDIBILITY_BLOCKS.map((block, i) => (

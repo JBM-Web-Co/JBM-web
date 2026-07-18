@@ -118,8 +118,8 @@ export function RecentProjects() {
                 <SectionHeader
                     className={s.header}
                     label="Recent Projects"
-                    title="Landing pages we've launched"
-                    subtitle="A look at recent builds for Australian service businesses."
+                    title="Websites we've launched"
+                    subtitle="A look at some of our recent builds."
                 />
 
                 <div className={s.carousel}>

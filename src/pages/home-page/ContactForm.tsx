@@ -5,7 +5,7 @@ import { BUSINESS_DATA } from '../../business-data';
 import { SectionHeader } from '../../components/SectionHeader';
 
 const NEXT_STEPS = [
-    'We send you an onboarding form to capture your business details',
+    'We send you an onboarding form to capture your details',
     'Once submitted, we send you a deposit invoice',
     'Once paid, your build begins',
 ] as const;
@@ -16,8 +16,8 @@ function ContactDetails() {
             <div>
                 <h3 className={s.infoTitle}>{BUSINESS_DATA.name}</h3>
                 <p className={s.infoText}>
-                    Specialist landing pages for Australian service businesses.
-                    Clear pricing. Fast turnaround. No tech headaches.
+                    Custom websites, built and managed for you. Clear pricing.
+                    Fast turnaround. No tech headaches.
                 </p>
             </div>
             <div className={s.nextSteps}>
@@ -75,8 +75,8 @@ export function ContactForm() {
                     <SectionHeader
                         className={s.headerInner}
                         label="Contact"
-                        title="Ready to get more leads?"
-                        subtitle="Tell us about your business and we'll get back to you within 24 hours with a clear plan."
+                        title="Ready to launch your website?"
+                        subtitle="Tell us what you need and we'll get back to you within 24 hours with a clear plan."
                     />
                     <p className={s.urgency}>
                         Limited build slots each month — enquire early to secure

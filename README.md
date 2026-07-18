@@ -1,6 +1,6 @@
 # JBM Web Co — Website
 
-Production codebase for **jbmweb.com**, JBM Web Co's own marketing and lead-generation site. JBM Web Co builds landing pages for Australian service businesses. This repo is that pitch: it markets the service, captures leads through the contact form, onboards new JBM clients through `/onboarding`, and can raise a Stripe deposit invoice once a client signs on.
+Production codebase for **jbmweb.com**, JBM Web Co's own marketing and lead-generation site. JBM Web Co builds and manages custom websites — from business landing pages to portfolios and anything else a client needs. This repo is that pitch: it markets the service, captures leads through the contact form, onboards new JBM clients through `/onboarding`, and can raise a Stripe deposit invoice once a client signs on.
 
 All of JBM Web Co's own business content (name, contact details, services, pricing, nav, hero copy) lives in `src/business-data.ts`, and the codebase is architected so the same components/backend could be reused to stand up a similar site for someone else — but this deployment is the real thing, not a placeholder/demo.
 

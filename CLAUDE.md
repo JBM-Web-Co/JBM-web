@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > - `/code-style` — TypeScript rules, naming conventions, exports, component architecture, a11y
 > - `/scss` — SCSS tokens, CSS Modules, mobile-first, nesting rules
 > - `/seo` — Heading hierarchy, JSON-LD schema, meta tags, MetaFunction convention
-> - `/brand-guidelines` — Client's business context, tone of voice, template colours
+> - `/brand-guidelines` — JBM Web Co's business context, tone of voice, and brand colours
 >
 > `/brand-guidelines` lives in this repo under `.claude/skills/`. `/code-style`, `/scss`, and `/seo` are provided by the shared JBM/ECC Claude config — make sure it is installed in your environment.
 
@@ -32,11 +32,11 @@ CI runs Prettier, typecheck, and ESLint on every PR. Before pushing: run `npm ru
 
 ## Architecture
 
-This is a **React Router v8 + Vercel** landing page template for JBM Web Co clients. It is configured as a framework-mode React Router app deployed on Vercel with serverless API functions.
+This is JBM Web Co's own marketing and lead-generation site — a **React Router v8 + Vercel** framework-mode app with serverless API functions. It is the live production site for jbmweb.com, not a client template.
 
-### Customising for a new client
+### Business content
 
-All client-specific content lives in `src/business-data.ts`. Fill in the `BUSINESS_DATA` object — name, contact details, services, areas, hero stats, nav items, etc. The rest of the app reads from this one file. Also replace public images (logo, hero).
+All business content lives in `src/business-data.ts` — name, contact details, services, pricing, nav items, FAQs. The rest of the app reads from this one file, so copy and detail changes should be made there first.
 
 ### Frontend
 
@@ -107,7 +107,8 @@ When generating code:
 
 When generating business copy:
 
-- Speak to Australian local service businesses
+- Speak to anyone who needs a website — businesses, sole traders, professionals, and personal projects alike
+- Assume a primarily Australian audience, but never gate copy to businesses or a single industry
 - Be conversion-focused
 - Avoid fluff
 - Be clear and commercial

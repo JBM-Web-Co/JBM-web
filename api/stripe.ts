@@ -7,7 +7,7 @@ import * as logger from './_src/utils/logger.js';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '');
 const DEPOSIT_COUPON_ID = 'nwTb01Wk' as const;
 const BUILD_SETUP_PRICE = 'price_1T7hhdECaVL73EU2P5R16snB' as const;
-const BUILD_DESCRIPTION = 'Landing page build & setup' as const;
+const BUILD_DESCRIPTION = 'Website build & setup' as const;
 const MEMO =
     'Deposit to commence work. Remaining balance due before launch.' as const;
 const FOOTER =

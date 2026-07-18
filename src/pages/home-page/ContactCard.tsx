@@ -208,7 +208,7 @@ export function ContactFormCard() {
                             Message
                         </label>
                         <p className={s.fieldHelper}>
-                            Share a few details about your business and goals.
+                            Share a few details about your project and goals.
                         </p>
                         <textarea
                             id="contact-message"

@@ -1,9 +1,10 @@
 import type { MouseEvent } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import s from './Hero.module.scss';
 import { BUSINESS_DATA } from '../../business-data';
 import { Button } from '../../components/Button';
+import { useRevealMotion } from '../../hooks/use-reveal-motion';
 
 const BOTTOM_STATS = [
     { value: '99.9%', label: 'Uptime guaranteed' },
@@ -12,16 +13,7 @@ const BOTTOM_STATS = [
 ] as const;
 
 export function Hero() {
-    const reduced_motion = useReducedMotion() ?? false;
-
-    const anim = (delay: number) =>
-        reduced_motion
-            ? {}
-            : {
-                  initial: { opacity: 0, y: 24 },
-                  animate: { opacity: 1, y: 0 },
-                  transition: { duration: 0.5, delay },
-              };
+    const reveal = useRevealMotion();
 
     const scroll_to =
         (id: string) =>
@@ -38,14 +30,14 @@ export function Hero() {
             <div className={s.inner}>
                 {/* ── Left column ── */}
                 <div className={s.left}>
-                    <motion.div {...anim(0.3)}>
+                    <motion.div {...reveal({ delay: 0.3 })}>
                         <div className={s.badge}>
                             <span className={s.badgeDot} />
                             Custom websites, built, hosted & managed
                         </div>
                     </motion.div>
 
-                    <motion.h1 className={s.title} {...anim(0.4)}>
+                    <motion.h1 className={s.title} {...reveal({ delay: 0.4 })}>
                         Websites that
                         <br />
                         <span className={s.highlight}>convert</span> your
@@ -54,18 +46,27 @@ export function Hero() {
                         into results.
                     </motion.h1>
 
-                    <motion.p className={s.subtitle} {...anim(0.5)}>
+                    <motion.p
+                        className={s.subtitle}
+                        {...reveal({ delay: 0.5 })}
+                    >
                         More enquiries. More bookings. More attention. We build,
                         host, and manage your website so every visitor knows
                         exactly what to do next.
                     </motion.p>
 
-                    <motion.p className={s.priceLine} {...anim(0.55)}>
+                    <motion.p
+                        className={s.priceLine}
+                        {...reveal({ delay: 0.55 })}
+                    >
                         ${BUSINESS_DATA.pricing.setup} upfront, then $
                         {BUSINESS_DATA.pricing.monthly}/month, cancel anytime
                     </motion.p>
 
-                    <motion.div className={s.actions} {...anim(0.6)}>
+                    <motion.div
+                        className={s.actions}
+                        {...reveal({ delay: 0.6 })}
+                    >
                         <Button
                             href="#contact"
                             className={s.heroCtaPrimary}
@@ -83,13 +84,16 @@ export function Hero() {
                         </Button>
                     </motion.div>
 
-                    <motion.p className={s.microReassurance} {...anim(0.65)}>
+                    <motion.p
+                        className={s.microReassurance}
+                        {...reveal({ delay: 0.65 })}
+                    >
                         Takes 2 minutes. We respond within 24 hours.
                     </motion.p>
                 </div>
 
                 {/* -- Right column: product mockup -- */}
-                <motion.div className={s.right} {...anim(0.55)}>
+                <motion.div className={s.right} {...reveal({ delay: 0.55 })}>
                     <div className={s.mockup} aria-hidden="true">
                         <div className={s.mockupBar}>
                             <span className={`${s.dot} ${s.dotRed}`} />

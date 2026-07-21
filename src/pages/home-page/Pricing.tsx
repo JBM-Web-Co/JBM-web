@@ -1,10 +1,12 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import s from './Pricing.module.scss';
 import type { MouseEvent } from 'react';
 import { BUSINESS_DATA } from '../../business-data';
 import { SectionHeader } from '../../components/SectionHeader';
 import { Button } from '../../components/Button';
+import { useRevealMotion } from '../../hooks/use-reveal-motion';
+import { useScrollReveal } from '../../hooks/use-scroll-reveal';
 
 const INCLUSIONS = [
     'Custom-built website',
@@ -18,17 +20,8 @@ const INCLUSIONS = [
 ] as const;
 
 export function Pricing() {
-    const reduced_motion = useReducedMotion() ?? false;
-
-    const anim = (delay: number) =>
-        reduced_motion
-            ? {}
-            : {
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 },
-                  viewport: { once: true },
-                  transition: { duration: 0.4, delay },
-              };
+    const reveal = useRevealMotion();
+    const { ref: header_ref, is_visible: header_visible } = useScrollReveal();
 
     const scroll_to_contact = (
         e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
@@ -42,7 +35,10 @@ export function Pricing() {
     return (
         <section className={s.pricing} id="pricing">
             <div className={s.inner}>
-                <motion.div {...anim(0)}>
+                <motion.div
+                    ref={header_ref}
+                    {...reveal({ visible: header_visible })}
+                >
                     <SectionHeader
                         className={s.header}
                         label="Pricing"

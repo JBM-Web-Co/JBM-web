@@ -14,38 +14,11 @@
     }
 
     .header {
-        text-align: center;
-        max-width: 640px;
-        margin: 0 auto 3rem;
+        margin-bottom: 3rem;
 
         @include bp.above(tablet) {
-            margin: 0 auto 4rem;
+            margin-bottom: 4rem;
         }
-    }
-
-    .label {
-        font-family: $font-heading;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: $primary;
-        margin-bottom: 0.75rem;
-    }
-
-    .title {
-        font-family: $font-heading;
-        font-size: clamp(1.9rem, 3vw, 2.6rem);
-        font-weight: 800;
-        color: $ink;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-        font-size: 1.05rem;
-        color: $text-body;
-        line-height: 1.6;
     }
 
     /* ── Carousel ── */
@@ -92,7 +65,7 @@
         scroll-snap-align: start;
         width: min(82vw, 320px);
         display: block;
-        background: #fff;
+        background: $primary-fg;
         border: 1px solid $hairline;
         border-radius: $radius;
         overflow: hidden;
@@ -143,7 +116,7 @@
         flex-shrink: 0;
         border-radius: 50%;
         border: 1px solid $hairline;
-        background: #fff;
+        background: $primary-fg;
         color: $ink;
         cursor: pointer;
         transition:
@@ -271,7 +244,7 @@
         top: 0.9rem;
         left: 0.9rem;
         background: oklch(20% 0.04 260 / 0.55);
-        color: #fff;
+        color: $primary-fg;
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.03em;
@@ -283,7 +256,7 @@
         font-family: $font-heading;
         font-size: 1.4rem;
         font-weight: 800;
-        color: #fff;
+        color: $primary-fg;
         letter-spacing: -0.01em;
         line-height: 1.2;
     }

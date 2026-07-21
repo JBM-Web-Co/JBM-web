@@ -19,7 +19,7 @@ export const ContactSchema = z.object({
 });
 export type ContactSchema = z.infer<typeof ContactSchema>;
 
-// The raw request body the client POSTs. `company` is a honeypot field —
+// The raw request body the client POSTs. `company` is a honeypot field,
 // it is hidden from real users, so any non-empty value indicates a bot.
 // It is intentionally NOT part of ContactSchema (the email payload).
 export const ContactRequestSchema = ContactSchema.extend({

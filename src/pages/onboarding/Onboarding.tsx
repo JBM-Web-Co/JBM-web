@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => [
     {
         name: 'description',
         content:
-            "Ready to get your landing page built? Tell us about your business and we'll put together a clear plan and get back to you within 24 hours.",
+            "Ready to get your website built? Tell us what you need and we'll put together a clear plan and get back to you within 24 hours.",
     },
     { name: 'robots', content: 'noindex, follow' },
     {

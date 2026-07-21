@@ -1,4 +1,6 @@
 // ── JBM Web Co – Design Tokens ──
+@use 'breakpoints' as bp;
+
 // Static tokens (don't change with theme)
 $primary: #2563eb;
 $primary-fg: #ffffff;
@@ -60,7 +62,7 @@ $container: 1200px;
     max-width: $container;
     margin: 0 auto;
     padding-inline: 1.5rem;
-    @media (min-width: 768px) {
+    @include bp.above(tablet) {
         padding-inline: 3rem;
     }
 }

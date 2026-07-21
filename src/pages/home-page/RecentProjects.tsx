@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import s from './RecentProjects.module.scss';
+import { SectionHeader } from '../../components/SectionHeader';
 
 type Project = Readonly<{
     name: string;
@@ -114,16 +115,12 @@ export function RecentProjects() {
     return (
         <section className={s.recentProjects} id="projects">
             <div className={s.inner}>
-                <div className={s.header}>
-                    <div className={s.label}>Recent Projects</div>
-                    <h2 className={s.title}>
-                        Landing pages we&apos;ve launched
-                    </h2>
-                    <p className={s.subtitle}>
-                        A look at recent builds for Australian service
-                        businesses.
-                    </p>
-                </div>
+                <SectionHeader
+                    className={s.header}
+                    label="Recent Projects"
+                    title="Websites we've launched"
+                    subtitle="A look at some of our recent builds."
+                />
 
                 <div className={s.carousel}>
                     <div
@@ -177,7 +174,7 @@ export function RecentProjects() {
                                             />
                                             <div className={s.previewUrl}>
                                                 {project.url.replace(
-                                                    'https://www.',
+                                                    /^https?:\/\/(www\.)?/,
                                                     ''
                                                 )}
                                             </div>

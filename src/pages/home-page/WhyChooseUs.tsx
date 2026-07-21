@@ -1,12 +1,13 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ClipboardList, Zap, Headphones, ShieldCheck } from 'lucide-react';
 import s from './WhyChooseUs.module.scss';
-import React from 'react';
+import type { ReactNode } from 'react';
 import { BUSINESS_DATA } from '../../business-data';
+import { SectionHeader } from '../../components/SectionHeader';
 
 type CredibilityBlock = {
     category: string;
-    icon: React.ReactNode;
+    icon: ReactNode;
     heading: string;
     description: string;
 };
@@ -16,7 +17,7 @@ const CREDIBILITY_BLOCKS: readonly CredibilityBlock[] = [
         category: 'Process',
         icon: <ClipboardList size={22} />,
         heading: 'One plan, transparent pricing',
-        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Hosting, SSL, monitoring, revisions and ongoing support — all included. No hidden fees.`,
+        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Hosting, SSL, monitoring, revisions and ongoing support, all included. No hidden fees.`,
     },
     {
         category: 'Technical',
@@ -30,7 +31,7 @@ const CREDIBILITY_BLOCKS: readonly CredibilityBlock[] = [
         icon: <Headphones size={22} />,
         heading: 'Australian-based, direct communication',
         description:
-            'You deal with us directly — no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
+            'You deal with us directly: no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
     },
     {
         category: 'Risk Reduction',
@@ -47,16 +48,11 @@ export function WhyChooseUs() {
     return (
         <section className={s.whyChooseUs} id="why-us">
             <div className={s.inner}>
-                <div className={s.header}>
-                    <div className={s.label}>Why Us</div>
-                    <h2 className={s.title}>
-                        Why businesses choose JBM Web Co
-                    </h2>
-                    <p className={s.subtitle}>
-                        Specialist landing pages backed by a transparent
-                        process, honest pricing, and local support.
-                    </p>
-                </div>
+                <SectionHeader
+                    label="Why Us"
+                    title="Why people choose JBM Web Co"
+                    subtitle="Custom websites backed by a transparent process, honest pricing, and local support."
+                />
                 <div className={s.grid}>
                     {CREDIBILITY_BLOCKS.map((block, i) => (
                         <motion.div

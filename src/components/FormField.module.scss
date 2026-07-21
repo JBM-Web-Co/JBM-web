@@ -46,16 +46,16 @@
 }
 
 .formInputError {
-    border-color: $danger;
+    border-color: $error;
 
     &:focus {
-        border-color: $danger;
-        box-shadow: 0 0 0 3px rgba($danger, 0.1);
+        border-color: $error;
+        box-shadow: 0 0 0 3px rgba($error, 0.1);
     }
 }
 
 .formError {
     font-size: 0.8rem;
-    color: $danger;
+    color: $error;
     margin-top: 0.35rem;
 }

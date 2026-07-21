@@ -1,6 +1,6 @@
 import type { MetaFunction } from 'react-router';
 import { Hero } from './Hero';
-import { BUSINESS_DATA } from '../../business-data';
+import { BUSINESS_DATA, FAQS } from '../../business-data';
 import { WhyChooseUs } from './WhyChooseUs';
 import { HowItWorks } from './HowItWorks';
 import { RecentProjects } from './RecentProjects';
@@ -20,7 +20,9 @@ const JSON_LD = {
     priceRange: '$$',
     address: {
         '@type': 'PostalAddress',
-        streetAddress: BUSINESS_DATA.address.street,
+        ...(BUSINESS_DATA.address.street && {
+            streetAddress: BUSINESS_DATA.address.street,
+        }),
         addressLocality: BUSINESS_DATA.address.city,
         addressRegion: BUSINESS_DATA.address.state,
         postalCode: BUSINESS_DATA.address.postcode,
@@ -35,10 +37,7 @@ const JSON_LD = {
     }),
     openingHours: BUSINESS_DATA.hours,
     ...(BUSINESS_DATA.serviceAreas.length > 0 && {
-        areaServed: BUSINESS_DATA.serviceAreas.map((area) => ({
-            '@type': 'City',
-            name: area,
-        })),
+        areaServed: BUSINESS_DATA.serviceAreas,
     }),
     ...(BUSINESS_DATA.online.facebook && {
         sameAs: [BUSINESS_DATA.online.facebook],
@@ -59,21 +58,36 @@ const JSON_LD = {
     }),
 } as const;
 
+const FAQ_JSON_LD = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+        },
+    })),
+} as const;
+
+const PAGE_TITLE = `${BUSINESS_DATA.name} | Custom Websites, Built & Managed`;
+
 export const meta: MetaFunction = () => [
-    { title: `${BUSINESS_DATA.name} | ${BUSINESS_DATA.tagline}` },
+    { title: PAGE_TITLE },
     { name: 'description', content: BUSINESS_DATA.description },
     {
         property: 'og:title',
-        content: `${BUSINESS_DATA.name} | ${BUSINESS_DATA.tagline}`,
+        content: PAGE_TITLE,
     },
     { property: 'og:description', content: BUSINESS_DATA.description },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: BUSINESS_DATA.online.url },
     { property: 'og:site_name', content: BUSINESS_DATA.name },
     { tagName: 'link', rel: 'canonical', href: BUSINESS_DATA.online.url },
-    { property: 'og:image', content: `${BUSINESS_DATA.online.url}/hero.png` },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
+    { property: 'og:image', content: `${BUSINESS_DATA.online.url}/logo.png` },
+    { property: 'og:image:width', content: '494' },
+    { property: 'og:image:height', content: '281' },
     {
         property: 'og:image:alt',
         content: BUSINESS_DATA.name,
@@ -81,15 +95,19 @@ export const meta: MetaFunction = () => [
     { name: 'twitter:card', content: 'summary_large_image' },
     {
         name: 'twitter:title',
-        content: `${BUSINESS_DATA.name} | ${BUSINESS_DATA.tagline}`,
+        content: PAGE_TITLE,
     },
     { name: 'twitter:description', content: BUSINESS_DATA.description },
-    { name: 'twitter:image', content: `${BUSINESS_DATA.online.url}/hero.png` },
+    {
+        name: 'twitter:image',
+        content: `${BUSINESS_DATA.online.url}/logo.png`,
+    },
     {
         name: 'twitter:image:alt',
         content: BUSINESS_DATA.name,
     },
     { 'script:ld+json': JSON_LD },
+    { 'script:ld+json': FAQ_JSON_LD },
 ];
 
 export default function HomePage() {
@@ -98,9 +116,9 @@ export default function HomePage() {
             <Hero />
             <WhyChooseUs />
             <HowItWorks />
-            <RecentProjects />
             <Pricing />
             <FAQ />
+            <RecentProjects />
             <ContactForm />
         </>
     );

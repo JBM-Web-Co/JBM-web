@@ -4,6 +4,7 @@ import { Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import { track } from '@vercel/analytics';
 import { BUSINESS_DATA } from '../../business-data';
 import s from './ContactForm.module.scss';
+import { Button } from '../../components/Button';
 
 type PreferredContact = 'Email' | 'Phone' | 'Either';
 
@@ -13,7 +14,7 @@ type ContactFormData = {
     phone: string;
     preferredContact: PreferredContact;
     message: string;
-    // Honeypot — hidden from real users; bots that fill it are dropped.
+    // Honeypot, hidden from real users; bots that fill it are dropped.
     company: string;
 };
 
@@ -104,8 +105,8 @@ export function ContactFormCard() {
                     <h3 className={s.successTitle}>Message Sent!</h3>
                     <p className={s.successText}>
                         We&apos;ll review your details and get back to you
-                        within 24 hours. Keep an eye on your inbox — we may ask
-                        a few quick questions.
+                        within 24 hours. Keep an eye on your inbox, as we may
+                        ask a few quick questions.
                     </p>
                 </div>
             ) : (
@@ -207,7 +208,7 @@ export function ContactFormCard() {
                             Message
                         </label>
                         <p className={s.fieldHelper}>
-                            Share a few details about your business and goals.
+                            Share a few details about your project and goals.
                         </p>
                         <textarea
                             id="contact-message"
@@ -232,9 +233,9 @@ export function ContactFormCard() {
                             onChange={set_field('company')}
                         />
                     </div>
-                    <button
+                    <Button
                         type="submit"
-                        className={s.btnPrimary}
+                        className={s.ctaButton}
                         disabled={loading}
                     >
                         {loading ? (
@@ -247,7 +248,7 @@ export function ContactFormCard() {
                                 <Send size={16} /> Get Started
                             </>
                         )}
-                    </button>
+                    </Button>
                     {submit_error && (
                         <div className={s.errorBanner}>
                             <AlertCircle size={40} />

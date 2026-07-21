@@ -1,34 +1,31 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import s from './Pricing.module.scss';
 import type { MouseEvent } from 'react';
 import { BUSINESS_DATA } from '../../business-data';
+import { SectionHeader } from '../../components/SectionHeader';
+import { Button } from '../../components/Button';
+import { useRevealMotion } from '../../hooks/use-reveal-motion';
+import { useScrollReveal } from '../../hooks/use-scroll-reveal';
 
 const INCLUSIONS = [
-    'Custom-built landing page',
+    'Custom-built website',
     'Mobile-responsive design',
     'Managed hosting + SSL + backups',
     'Uptime monitoring',
     'Domain & DNS wiring',
     'Contact form + CRM integration',
     'Basic on-page SEO',
-    'Monthly updates & revisions',
+    'Four small revisions per month',
 ] as const;
 
 export function Pricing() {
-    const reduced_motion = useReducedMotion() ?? false;
+    const reveal = useRevealMotion();
+    const { ref: header_ref, is_visible: header_visible } = useScrollReveal();
 
-    const anim = (delay: number) =>
-        reduced_motion
-            ? {}
-            : {
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 },
-                  viewport: { once: true },
-                  transition: { duration: 0.4, delay },
-              };
-
-    const scroll_to_contact = (e: MouseEvent<HTMLAnchorElement>) => {
+    const scroll_to_contact = (
+        e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+    ) => {
         e.preventDefault();
         document
             .getElementById('contact')
@@ -38,12 +35,16 @@ export function Pricing() {
     return (
         <section className={s.pricing} id="pricing">
             <div className={s.inner}>
-                <motion.div className={s.header} {...anim(0)}>
-                    <div className={s.label}>Pricing</div>
-                    <h2 className={s.title}>One plan. Everything included.</h2>
-                    <p className={s.subtitle}>
-                        No tiers. No add-ons. No surprises.
-                    </p>
+                <motion.div
+                    ref={header_ref}
+                    {...reveal({ visible: header_visible })}
+                >
+                    <SectionHeader
+                        className={s.header}
+                        label="Pricing"
+                        title="One plan. Everything included."
+                        subtitle="No tiers. No add-ons. No surprises."
+                    />
                 </motion.div>
 
                 <div className={s.card}>
@@ -71,10 +72,11 @@ export function Pricing() {
 
                     <div className={s.cardBody}>
                         <p className={s.valueFrame}>
-                            If your landing page generates just a few extra
-                            enquiries a month, it pays for itself. For most
-                            service businesses, a single extra job covers the
-                            cost many times over.
+                            If your website brings in just a few extra enquiries
+                            a month, it pays for itself many times over.
+                            Whatever your site is for, it&apos;s a small price
+                            for a professional web presence that&apos;s fully
+                            managed for you.
                         </p>
 
                         <h3 className={s.inclusionsTitle}>
@@ -91,14 +93,14 @@ export function Pricing() {
                             ))}
                         </ul>
 
-                        <a
+                        <Button
                             href="#contact"
-                            className={s.btnPrimary}
+                            className={s.ctaButton}
                             onClick={scroll_to_contact}
                         >
                             Get Started
                             <ArrowRight size={17} />
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>

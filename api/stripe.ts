@@ -7,13 +7,13 @@ import * as logger from './_src/utils/logger.js';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '');
 const DEPOSIT_COUPON_ID = 'nwTb01Wk' as const;
 const BUILD_SETUP_PRICE = 'price_1T7hhdECaVL73EU2P5R16snB' as const;
-const BUILD_DESCRIPTION = 'Landing page build & setup' as const;
+const BUILD_DESCRIPTION = 'Website build & setup' as const;
 const MEMO =
     'Deposit to commence work. Remaining balance due before launch.' as const;
 const FOOTER =
     `Thanks for choosing JBM Web Co. If you have any questions, email us at admin@jbmweb.com or call us on 0459560321.
 
-JBM Web Co | ABN: 75779233781 | Armidale, NSW | Payment due within 7 days of invoice date. ` as const;
+JBM Web Co | ABN: 75 779 233 781 | Armidale, NSW | Payment due within 7 days of invoice date. ` as const;
 
 const address_schema = z.object({
     line1: z.string().min(1),

@@ -27,30 +27,8 @@
         margin: 0 auto 3.5rem;
     }
 
-    .label {
-        font-family: $font-heading;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: $primary;
-        margin-bottom: 0.75rem;
-    }
-
-    .title {
-        font-family: $font-heading;
-        font-size: clamp(1.9rem, 3vw, 2.6rem);
-        font-weight: 800;
-        color: $ink;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-        font-size: 1.05rem;
-        color: $text-body;
-        line-height: 1.6;
-        margin-bottom: 0.5rem;
+    .headerInner {
+        margin-bottom: 0;
     }
 
     .urgency {
@@ -92,7 +70,7 @@
     }
 
     .nextSteps {
-        background: #fff;
+        background: $primary-fg;
         border: 1px solid oklch(90% 0.012 260);
         border-radius: 14px;
         padding: 1.5rem;
@@ -159,7 +137,7 @@
         width: 36px;
         height: 36px;
         border-radius: 9px;
-        background: #fff;
+        background: $primary-fg;
         border: 1px solid oklch(90% 0.012 260);
         color: $primary;
         display: flex;
@@ -193,7 +171,7 @@
 
     /* ── Form card ── */
     .formCard {
-        background: #fff;
+        background: $primary-fg;
         border: 1px solid oklch(90% 0.012 260);
         border-radius: 18px;
         padding: 2.25rem;
@@ -241,7 +219,7 @@
         font-family: $font-body;
         font-size: 0.92rem;
         color: oklch(20% 0.03 260);
-        background: #fff;
+        background: $primary-fg;
         transition:
             border-color 0.18s,
             box-shadow 0.18s;
@@ -280,39 +258,9 @@
         color: $error;
     }
 
-    .btnPrimary {
+    .ctaButton {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
         width: 100%;
-        background: $primary;
-        color: #fff;
-        padding: 1rem;
-        border-radius: $radius-pill;
-        font-size: 1rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition:
-            background 0.18s,
-            transform 0.18s;
-
-        &:hover:not(:disabled) {
-            background: $primary-hover;
-            transform: translateY(-2px);
-        }
-
-        &:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            transition: none;
-            &:hover {
-                transform: none;
-            }
-        }
     }
 
     .spinner {

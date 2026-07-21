@@ -5,6 +5,7 @@ type SectionHeaderProps = Readonly<{
     title: string;
     subtitle?: string;
     dark?: boolean;
+    className?: string;
 }>;
 
 export function SectionHeader({
@@ -12,9 +13,10 @@ export function SectionHeader({
     title,
     subtitle,
     dark = false,
+    className = '',
 }: SectionHeaderProps) {
     return (
-        <div className={s.sectionHeader}>
+        <div className={`${s.sectionHeader} ${className}`.trim()}>
             <span
                 className={`${s.sectionLabel}${dark ? ` ${s.sectionLabelDark}` : ''}`}
             >

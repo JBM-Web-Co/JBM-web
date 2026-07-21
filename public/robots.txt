@@ -3,4 +3,4 @@ Allow: /
 Disallow: /onboarding
 Disallow: /onboarding/thanks
 
-Sitemap: https://www.UPDATEME.com/sitemap.xml
+Sitemap: https://www.jbmweb.com/sitemap.xml

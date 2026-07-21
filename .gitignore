@@ -6,11 +6,11 @@
 .env.local
 .vercel
 .env*.local
-api/_src/emails/*.js
+api/_src/emails/**/*.js
 .vscode/
 .env*
 
-# Per-machine Claude Code permissions — must not ship in the template
+# Per-machine Claude Code permissions: must not ship in the template
 .claude/settings.local.json
 
 .vercel

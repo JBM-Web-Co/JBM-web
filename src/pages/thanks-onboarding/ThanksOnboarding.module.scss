@@ -71,29 +71,13 @@
         margin-top: 2rem;
     }
 
-    .btnPrimary {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: $primary;
-        color: white;
+    .thanksCta {
         padding: 0.75rem 1.75rem;
-        border-radius: $radius-pill;
         font-size: 0.95rem;
         font-weight: 600;
-        transition:
-            background 0.2s,
-            transform 0.2s;
 
         &:hover {
-            background: $primary-hover;
             transform: translateY(-1px);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            &:hover {
-                transform: none;
-            }
         }
     }
 

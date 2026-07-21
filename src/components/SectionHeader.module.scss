@@ -1,16 +1,16 @@
 @use '../styles/variables' as *;
-@use '../styles/breakpoints' as bp;
 
 .sectionHeader {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 4rem;
 }
 
 .sectionLabel {
     display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-family: $font-heading;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: $primary;
@@ -19,22 +19,18 @@
 
 .sectionTitle {
     font-family: $font-heading;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: $text;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-
-    @include bp.above(tablet) {
-        font-size: 2.75rem;
-    }
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: $ink;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .sectionSubtitle {
     font-size: 1.05rem;
-    color: $text-muted;
-    line-height: 1.7;
+    color: $text-body;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
 }
 
 .sectionLabelDark {

@@ -71,7 +71,7 @@
     align-items: center;
     gap: 0.6rem;
     border: 1px solid oklch(88% 0.015 260);
-    background: #fff;
+    background: $primary-fg;
     padding: 0.45rem 1.1rem 0.45rem 0.9rem;
     border-radius: $radius-pill;
     font-size: 0.8rem;
@@ -137,57 +137,17 @@
     margin-bottom: 1rem;
 }
 
-.btnPrimary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: $primary;
-    color: #fff;
+.heroCtaPrimary {
     padding: 1rem 1.9rem;
-    border-radius: $radius-pill;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
     box-shadow: 0 10px 28px oklch(52% 0.19 260 / 0.32);
-    transition:
-        background 0.18s,
-        transform 0.18s,
-        box-shadow 0.18s;
 
     &:hover {
-        background: $primary-hover;
-        transform: translateY(-2px);
         box-shadow: 0 14px 34px oklch(52% 0.19 260 / 0.4);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        transition: none;
-        &:hover {
-            transform: none;
-        }
     }
 }
 
-.btnSecondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1.5px solid oklch(80% 0.02 260);
-    color: $ink-body;
-    background: #fff;
+.heroCtaSecondary {
     padding: 1rem 1.9rem;
-    border-radius: $radius-pill;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-        border-color 0.18s,
-        color 0.18s;
-
-    &:hover {
-        border-color: $primary;
-        color: $primary;
-    }
 }
 
 .microReassurance {
@@ -195,7 +155,7 @@
     color: $text-soft;
 }
 
-/* ── Right column — product mockup ── */
+/* -- Right column: product mockup -- */
 .right {
     position: relative;
     padding-bottom: 1.75rem; // room for the hanging float badge
@@ -207,7 +167,7 @@
 }
 
 .mockup {
-    background: #fff;
+    background: $primary-fg;
     border-radius: 18px;
     box-shadow:
         0 30px 70px -20px oklch(20% 0.04 260 / 0.28),
@@ -249,7 +209,7 @@
 .mockupUrl {
     margin-left: 0.6rem;
     flex: 1;
-    background: #fff;
+    background: $primary-fg;
     border: 1px solid oklch(90% 0.01 260);
     border-radius: 6px;
     padding: 0.3rem 0.7rem;
@@ -259,7 +219,7 @@
 
 .mockupBody {
     padding: 1.5rem 1.5rem 1.7rem;
-    background: #fff;
+    background: $primary-fg;
 }
 
 .mockNav {
@@ -357,7 +317,7 @@
     height: 26px;
     border-radius: $radius-pill;
     border: 1.5px solid oklch(85% 0.01 260);
-    background: #fff;
+    background: $primary-fg;
 }
 
 .mockImage {
@@ -388,7 +348,7 @@
     bottom: -4px;
     left: -24px;
     background: $cta-dark;
-    color: #fff;
+    color: $primary-fg;
     border-radius: 14px;
     padding: 0.9rem 1.25rem;
     display: flex;

@@ -12,7 +12,7 @@ export function Footer() {
                         <Link
                             to="/"
                             className={s.logo}
-                            aria-label={`${BUSINESS_DATA.name} — home`}
+                            aria-label={`${BUSINESS_DATA.name} home`}
                         >
                             <span className={s.logoMark}>JBM</span>
                             <span className={s.logoWord}>Web Co</span>

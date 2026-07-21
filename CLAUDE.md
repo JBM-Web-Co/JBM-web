@@ -2,14 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **Skills:** Four skills extend this file with reusable standards — always load the relevant skill before working in that area:
+> **Skills:** Four skills extend this file with reusable standards: always load the relevant skill before working in that area:
 >
-> - `/code-style` — TypeScript rules, naming conventions, exports, component architecture, a11y
-> - `/scss` — SCSS tokens, CSS Modules, mobile-first, nesting rules
-> - `/seo` — Heading hierarchy, JSON-LD schema, meta tags, MetaFunction convention
-> - `/brand-guidelines` — Client's business context, tone of voice, template colours
+> - `/code-style`: TypeScript rules, naming conventions, exports, component architecture, a11y
+> - `/scss`: SCSS tokens, CSS Modules, mobile-first, nesting rules
+> - `/seo`: Heading hierarchy, JSON-LD schema, meta tags, MetaFunction convention
+> - `/brand-guidelines`: JBM Web Co's business context, tone of voice, and brand colours
 >
-> `/brand-guidelines` lives in this repo under `.claude/skills/`. `/code-style`, `/scss`, and `/seo` are provided by the shared JBM/ECC Claude config — make sure it is installed in your environment.
+> `/brand-guidelines` lives in this repo under `.claude/skills/`. `/code-style`, `/scss`, and `/seo` are provided by the shared JBM/ECC Claude config. Make sure it is installed in your environment.
 
 ---
 
@@ -32,23 +32,23 @@ CI runs Prettier, typecheck, and ESLint on every PR. Before pushing: run `npm ru
 
 ## Architecture
 
-This is a **React Router v8 + Vercel** landing page template for JBM Web Co clients. It is configured as a framework-mode React Router app deployed on Vercel with serverless API functions.
+This is JBM Web Co's own marketing and lead-generation site: a **React Router v8 + Vercel** framework-mode app with serverless API functions. It is the live production site for jbmweb.com, not a client template.
 
-### Customising for a new client
+### Business content
 
-All client-specific content lives in `src/business-data.ts`. Fill in the `BUSINESS_DATA` object — name, contact details, services, areas, hero stats, nav items, etc. The rest of the app reads from this one file. Also replace public images (logo, hero).
+All business content lives in `src/business-data.ts`: name, contact details, services, pricing, nav items, FAQs. The rest of the app reads from this one file, so copy and detail changes should be made there first.
 
 ### Frontend
 
-- `root.tsx` — layout shell with header, footer, analytics, and font imports
-- `routes.ts` — route definitions
-- `pages/` — page-level components, each exports a `MetaFunction`
-- `components/` — reusable UI primitives
+- `root.tsx`: layout shell with header, footer, analytics, and font imports
+- `routes.ts`: route definitions
+- `pages/`: page-level components, each exports a `MetaFunction`
+- `components/`: reusable UI primitives
 - Each component has a co-located `*.module.scss` for styles
 
 ### File naming
 
-- **kebab-case** for everything by default — `.ts` utilities, hooks, scripts, data, and standalone stylesheets (`business-data.ts`, `use-scroll-reveal.ts`, `contact-schema.ts`, `send-email.ts`, `global.scss`, `_variables.scss`).
+- **kebab-case** for everything by default: `.ts` utilities, hooks, scripts, data, and standalone stylesheets (`business-data.ts`, `use-scroll-reveal.ts`, `contact-schema.ts`, `send-email.ts`, `global.scss`, `_variables.scss`).
 - **PascalCase** only for React component files (`Header.tsx`, `HomePage.tsx`) and the SCSS module co-located with a component (`Header.module.scss`).
 - Framework entry/config files keep their required names (`entry.client.tsx`, `react-router.config.ts`, `vite.config.ts`).
 
@@ -74,7 +74,7 @@ Pages export a `MetaFunction` with Open Graph, Twitter Card, and JSON-LD structu
 - Use `Promise.all` for parallel side effects
 - Degrade gracefully for genuinely non-critical side effects, but when an
   endpoint's primary purpose fails (e.g. the contact notification email),
-  return a clear 5xx — never a false success
+  return a clear 5xx, never a false success
 
 ---
 
@@ -105,9 +105,12 @@ When generating code:
 - Call out architectural problems directly
 - Suggest improvements when needed
 
+Never use em dashes (—) anywhere in this repo: not in copy, comments, docs, or commit messages. Use a period, comma, colon, or parentheses instead.
+
 When generating business copy:
 
-- Speak to Australian local service businesses
+- Speak to anyone who needs a website: businesses, sole traders, professionals, and personal projects alike
+- Assume a primarily Australian audience, but never gate copy to businesses or a single industry
 - Be conversion-focused
 - Avoid fluff
 - Be clear and commercial

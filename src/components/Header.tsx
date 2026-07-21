@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { BUSINESS_DATA } from '../business-data';
@@ -32,17 +33,17 @@ export function Header() {
     return (
         <header className={s.header}>
             <div className={s.inner}>
-                <a
-                    href="#"
+                <Link
+                    to="/"
                     className={s.logo}
-                    aria-label={`${BUSINESS_DATA.name} — home`}
+                    aria-label={`${BUSINESS_DATA.name} home`}
                 >
                     <img
                         src="/horizontal_logo.svg"
                         alt={BUSINESS_DATA.name}
                         className={s.logoImg}
                     />
-                </a>
+                </Link>
 
                 <nav className={s.nav} aria-label="Main navigation">
                     {BUSINESS_DATA.navItems.map((item) => {
@@ -50,7 +51,7 @@ export function Header() {
                         return (
                             <a
                                 key={item.href}
-                                href={item.href}
+                                href={`/${item.href}`}
                                 className={`${s.link} ${active_section === section_id ? s.linkActive : ''}`}
                             >
                                 {item.label}
@@ -85,7 +86,7 @@ export function Header() {
                         {BUSINESS_DATA.navItems.map((item) => (
                             <a
                                 key={item.href}
-                                href={item.href}
+                                href={`/${item.href}`}
                                 className={s.mobileNavLink}
                                 onClick={close_menu}
                             >

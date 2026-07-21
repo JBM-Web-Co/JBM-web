@@ -19,7 +19,7 @@ export function Footer() {
                 <Link href="tel:0459560321" style={FOOTER_LINK}>
                     0459560321
                 </Link>
-                &nbsp;&bull;&nbsp; ABN: 75779233781
+                &nbsp;&bull;&nbsp; ABN: 75 779 233 781
             </Text>
             <Text style={FOOTER_TEXT}>
                 You received this email because you submitted an enquiry on JBM

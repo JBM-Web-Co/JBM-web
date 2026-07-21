@@ -39,12 +39,12 @@ function Hero({ name }: { name: string }) {
 
             <Text style={PARAGRAPH}>
                 Thanks for reaching out to <strong>JBM Web Co</strong>. We're
-                excited to work with you to bring your landing page to life.
+                excited to work with you to bring your website to life.
             </Text>
 
             <Text style={PARAGRAPH}>
-                We build, host, and manage your landing page so you can focus on
-                running your business, not the tech behind it.
+                We build, host, and manage your website so you can focus on what
+                you do best, not the tech behind it.
             </Text>
         </>
     );
@@ -88,7 +88,7 @@ function NextSteps() {
                 3. Build begins once deposit is received
             </Text>
             <Text style={LIST_ITEM_MUTED}>
-                4. Landing page completed in 3–4 weeks
+                4. Website completed in 3–4 weeks
             </Text>
             <Text style={LIST_ITEM_MUTED}>
                 5. Remaining 50% is due before launch
@@ -133,7 +133,7 @@ function EmailContent(data: ContactSchema) {
         <Container style={OUTER_CONTAINER_STYLE}>
             <Section style={CARD_STYLE}>
                 <Header
-                    heading={`Your landing page journey starts here, ${data.name.split(' ')[0]}!`}
+                    heading={`Your new website starts here, ${data.name.split(' ')[0]}!`}
                 />
                 <Section style={BODY_SECTION}>
                     <Hero name={data.name} />
@@ -173,7 +173,7 @@ export function OnboardingEmail(data: ContactSchema) {
                 <meta name="x-apple-disable-message-reformatting" />
             </Head>
             <Preview>
-                Start onboarding to get your landing page live in 3–4 weeks.
+                Start onboarding to get your website live in 3–4 weeks.
             </Preview>
 
             <Body style={BODY_STYLE}>

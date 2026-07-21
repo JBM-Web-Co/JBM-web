@@ -17,7 +17,7 @@ const CREDIBILITY_BLOCKS: readonly CredibilityBlock[] = [
         category: 'Process',
         icon: <ClipboardList size={22} />,
         heading: 'One plan, transparent pricing',
-        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Hosting, SSL, monitoring, revisions and ongoing support — all included. No hidden fees.`,
+        description: `$${BUSINESS_DATA.pricing.setup} upfront + $${BUSINESS_DATA.pricing.monthly}/month. Hosting, SSL, monitoring, revisions and ongoing support, all included. No hidden fees.`,
     },
     {
         category: 'Technical',
@@ -31,7 +31,7 @@ const CREDIBILITY_BLOCKS: readonly CredibilityBlock[] = [
         icon: <Headphones size={22} />,
         heading: 'Australian-based, direct communication',
         description:
-            'You deal with us directly — no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
+            'You deal with us directly: no outsourcing, no runaround. We respond and confirm next steps within 24 hours.',
     },
     {
         category: 'Risk Reduction',

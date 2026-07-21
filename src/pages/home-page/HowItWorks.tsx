@@ -43,7 +43,7 @@ export function HowItWorks() {
                     className={s.header}
                     label="How It Works"
                     title="From brief to live in four weeks"
-                    subtitle="A clear, structured process — no tech skills needed. We handle everything from strategy to launch."
+                    subtitle="A clear, structured process. No tech skills needed. We handle everything from strategy to launch."
                 />
                 <div className={s.steps}>
                     {STEPS.map((step, i) => (

@@ -72,7 +72,7 @@ const contact_email = async (data: ContactSchema) => {
             react: ContactEmail(data),
         });
     } catch (error) {
-        // Upstream email provider failed — log the detail, return a generic
+        // Upstream email provider failed. Log the detail, return a generic
         // message so we never leak provider internals to the client.
         logger.error('Failed to send notification email', {
             error: error instanceof Error ? error.message : String(error),
@@ -86,13 +86,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const request_data = validate_request(req);
         const contact_data = validate_contact_data(request_data);
         if (!contact_data) {
-            // Honeypot triggered — respond with 200 to avoid tipping off bots.
+            // Honeypot triggered, respond with 200 to avoid tipping off bots.
             return res.status(200).json({ ok: true });
         }
 
         // Run all three side effects together. Airtable is the critical one:
         // if the lead isn't saved we surface a 500. The two emails are best
-        // effort — a failure is logged but doesn't fail the request.
+        // effort; a failure is logged but doesn't fail the request.
         const [airtable, onboard_email, notification_email] =
             await Promise.allSettled([
                 sendLeadToAirtable(contact_data),

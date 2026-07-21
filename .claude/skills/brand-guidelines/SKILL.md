@@ -1,9 +1,9 @@
 ---
 name: brand-guidelines
-description: Apply when writing copy, generating UI, or making styling decisions — enforces JBM Web Co's brand identity, tone, colours, and typography
+description: Apply when writing copy, generating UI, or making styling decisions: enforces JBM Web Co's brand identity, tone, colours, and typography
 ---
 
-# Brand Guidelines — JBM Web Co
+# Brand Guidelines: JBM Web Co
 
 Apply these guidelines whenever writing copy, choosing colours, selecting fonts, or designing UI components for this site.
 
@@ -13,9 +13,9 @@ Apply these guidelines whenever writing copy, choosing colours, selecting fonts,
 
 - **Business name:** JBM Web Co
 - **What we do:** Custom website design, build, hosting, and ongoing management
-- **Location:** Armidale, NSW, Australia — serving clients Australia-wide
-- **Target audience:** Anyone who needs a website — small businesses, sole traders, professionals, portfolios, personal and community projects
-- **Unique selling point:** One flat, transparent plan ($499 setup + $79/month) with everything included — hosting, SSL, monitoring, revisions, and direct Australian-based support. No lock-in contracts.
+- **Location:** Armidale, NSW, Australia, serving clients Australia-wide
+- **Target audience:** Anyone who needs a website: small businesses, sole traders, professionals, portfolios, personal and community projects
+- **Unique selling point:** One flat, transparent plan ($499 setup + $79/month) with everything included: hosting, SSL, monitoring, revisions, and direct Australian-based support. No lock-in contracts.
 
 ---
 
@@ -25,13 +25,13 @@ Apply these guidelines whenever writing copy, choosing colours, selecting fonts,
 - **Do:**
     - Lead with outcomes (more enquiries, more bookings, more attention)
     - Use short sentences and concrete numbers ($499, $79/month, 3–4 weeks, 24-hour response)
-    - Speak to the reader as "you"; keep audience language broad — never assume the reader runs a business
+    - Speak to the reader as "you"; keep audience language broad. Never assume the reader runs a business
     - Emphasise transparency: no hidden fees, no lock-in, cancel anytime
 - **Don't:**
     - Use jargon, tech-speak, or agency fluff ("digital solutions", "synergy")
     - Make unverifiable claims or inflate numbers
     - Narrow copy to a single industry or client type
-    - Bury the price — transparent pricing is the pitch
+    - Bury the price: transparent pricing is the pitch
 
 Copy should always be conversion-focused. Assume a primarily Australian audience, but write for anyone who needs a website.
 
@@ -39,7 +39,7 @@ Copy should always be conversion-focused. Assume a primarily Australian audience
 
 ## Colours
 
-Tokens live in `src/styles/_variables.scss` (static SCSS) and `src/styles/global.scss` (`:root` custom properties). Never hardcode hex values in components — use the tokens.
+Tokens live in `src/styles/_variables.scss` (static SCSS) and `src/styles/global.scss` (`:root` custom properties). Never hardcode hex values in components. Use the tokens.
 
 | Token            | Value                   | Usage                                   |
 | ---------------- | ----------------------- | --------------------------------------- |
@@ -55,7 +55,7 @@ Tokens live in `src/styles/_variables.scss` (static SCSS) and `src/styles/global
 | `$text-body`     | `oklch(42% 0.02 260)`   | Paragraph copy                          |
 | `$text-soft`     | `oklch(52% 0.015 260)`  | Muted text, captions                    |
 
-The palette is a warm paper background with navy ink and a blue primary — light-only, no theme switching on marketing sections.
+The palette is a warm paper background with navy ink and a blue primary; light-only, no theme switching on marketing sections.
 
 ---
 
@@ -63,7 +63,7 @@ The palette is a warm paper background with navy ink and a blue primary — ligh
 
 - **Heading font:** Outfit (weights 400–700)
 - **Body font:** Plus Jakarta Sans (weights 300–600)
-- **Font source:** Google Fonts — preconnected and imported in `src/root.tsx`
+- **Font source:** Google Fonts: preconnected and imported in `src/root.tsx`
 - SCSS tokens: `$font-heading`, `$font-body` in `_variables.scss`
 
 ---
@@ -78,6 +78,6 @@ The palette is a warm paper background with navy ink and a blue primary — ligh
 
 ## Imagery
 
-- **Style:** UI mockups and abstract product visuals (browser-frame mockups, floating badges) — no generic stock photography
+- **Style:** UI mockups and abstract product visuals (browser-frame mockups, floating badges); no generic stock photography
 - **Project previews:** Recent-projects cards use stylised browser previews with a per-project accent colour, not screenshots
 - **Alt text tone:** Descriptive and keyword-rich (supports SEO); decorative visuals use `aria-hidden`

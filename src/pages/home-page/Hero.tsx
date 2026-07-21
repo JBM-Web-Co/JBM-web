@@ -41,7 +41,7 @@ export function Hero() {
                     <motion.div {...anim(0.3)}>
                         <div className={s.badge}>
                             <span className={s.badgeDot} />
-                            Custom websites — built, hosted & managed
+                            Custom websites, built, hosted & managed
                         </div>
                     </motion.div>
 
@@ -62,7 +62,7 @@ export function Hero() {
 
                     <motion.p className={s.priceLine} {...anim(0.55)}>
                         ${BUSINESS_DATA.pricing.setup} upfront, then $
-                        {BUSINESS_DATA.pricing.monthly}/month — cancel anytime
+                        {BUSINESS_DATA.pricing.monthly}/month, cancel anytime
                     </motion.p>
 
                     <motion.div className={s.actions} {...anim(0.6)}>
@@ -88,7 +88,7 @@ export function Hero() {
                     </motion.p>
                 </div>
 
-                {/* ── Right column — product mockup ── */}
+                {/* -- Right column: product mockup -- */}
                 <motion.div className={s.right} {...anim(0.55)}>
                     <div className={s.mockup} aria-hidden="true">
                         <div className={s.mockupBar}>

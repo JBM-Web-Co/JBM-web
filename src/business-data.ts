@@ -66,9 +66,9 @@ export type BusinessData = Readonly<{
 export const BUSINESS_DATA: BusinessData = {
     name: 'JBM Web Co',
     tagline:
-        'Custom websites that turn visitors into results — built, hosted, and managed for you',
+        'Custom websites that turn visitors into results: built, hosted, and managed for you',
     description:
-        'Custom-built websites for any need. Clear pricing, fast turnaround, and managed hosting — everything included.',
+        'Custom-built websites for any need. Clear pricing, fast turnaround, and managed hosting, with everything included.',
     // schema.org OpeningHoursSpecification format (Mon-Fri, 9am-5pm AEST).
     hours: 'Mo-Fr 09:00-17:00',
 
@@ -154,7 +154,7 @@ export const FAQS: readonly FAQ[] = [
     },
     {
         question: 'Do I own my domain?',
-        answer: 'Yes. Your domain is always registered in your name — you own it outright. We handle the DNS wiring to connect it to your hosted page.',
+        answer: 'Yes. Your domain is always registered in your name, and you own it outright. We handle the DNS wiring to connect it to your hosted page.',
     },
     {
         question: 'Can you help with domain setup?',
@@ -162,7 +162,7 @@ export const FAQS: readonly FAQ[] = [
     },
     {
         question: 'Do you only build business websites?',
-        answer: 'No. We build websites for any purpose — businesses, portfolios, personal projects, community groups, events, and more. The same plan, pricing, and process applies.',
+        answer: 'No. We build websites for any purpose: businesses, portfolios, personal projects, community groups, events, and more. The same plan, pricing, and process applies.',
     },
     {
         question: 'What is the typical timeline?',

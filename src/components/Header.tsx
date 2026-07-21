@@ -36,7 +36,7 @@ export function Header() {
                 <Link
                     to="/"
                     className={s.logo}
-                    aria-label={`${BUSINESS_DATA.name} — home`}
+                    aria-label={`${BUSINESS_DATA.name} home`}
                 >
                     <img
                         src="/horizontal_logo.svg"

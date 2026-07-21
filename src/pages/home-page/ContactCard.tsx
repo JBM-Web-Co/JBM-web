@@ -14,7 +14,7 @@ type ContactFormData = {
     phone: string;
     preferredContact: PreferredContact;
     message: string;
-    // Honeypot — hidden from real users; bots that fill it are dropped.
+    // Honeypot, hidden from real users; bots that fill it are dropped.
     company: string;
 };
 
@@ -105,8 +105,8 @@ export function ContactFormCard() {
                     <h3 className={s.successTitle}>Message Sent!</h3>
                     <p className={s.successText}>
                         We&apos;ll review your details and get back to you
-                        within 24 hours. Keep an eye on your inbox — we may ask
-                        a few quick questions.
+                        within 24 hours. Keep an eye on your inbox, as we may
+                        ask a few quick questions.
                     </p>
                 </div>
             ) : (

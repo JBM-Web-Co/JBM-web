@@ -4,7 +4,7 @@ import s from './ThanksOnboarding.module.scss';
 import { Button } from '../../components/Button';
 
 export const meta: MetaFunction = () => [
-    { title: "JBM Web Co | Thanks — We'll Be in Touch" },
+    { title: "JBM Web Co | Thanks, We'll Be in Touch" },
     {
         name: 'description',
         content:

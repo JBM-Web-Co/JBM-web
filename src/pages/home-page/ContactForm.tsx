@@ -79,7 +79,7 @@ export function ContactForm() {
                         subtitle="Tell us what you need and we'll get back to you within 24 hours with a clear plan."
                     />
                     <p className={s.urgency}>
-                        Limited build slots each month — enquire early to secure
+                        Limited build slots each month. Enquire early to secure
                         your spot.
                     </p>
                 </div>

@@ -221,11 +221,12 @@ export function ContactFormCard() {
                         />
                     </div>
                     <div className={s.honeypot} aria-hidden="true">
-                        <label htmlFor="contact-company">
-                            Company (leave blank)
+                        <label htmlFor="contact-hp">
+                            Leave this field blank
                         </label>
                         <input
-                            id="contact-company"
+                            id="contact-hp"
+                            name="hp-field"
                             type="text"
                             tabIndex={-1}
                             autoComplete="off"

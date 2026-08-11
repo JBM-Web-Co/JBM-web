@@ -18,6 +18,14 @@ type PreviewStyle = CSSProperties & { '--project-accent': string };
 
 const PROJECTS: readonly Project[] = [
     {
+        name: "Jake's Cafe",
+        url: 'https://www.jakemayled.dev',
+        industry: 'Personal Portfolio',
+        location: 'Australia',
+        blurb: 'Interactive 3D developer portfolio disguised as a corner cafe. Every brick, chalkboard, and neon sign is painted at runtime with React Three Fiber, shipping zero image assets.',
+        accent: '#a2542f',
+    },
+    {
         name: 'J & H Rural Earthmoving',
         url: 'https://www.j-hruralearthmoving.com',
         industry: 'Rural Earthmoving',
